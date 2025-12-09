@@ -15,12 +15,19 @@ toggle.addEventListener('click', () => {
   toggle.textContent = next === 'light' ? '🌙' : '☀️';
 });
 
-// ===== Tab title change when user leaves
+// ===== Tab title change when user leaves (with 5 second delay)
 const originalTitle = document.title;
+let titleTimeout;
+
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
-    document.title = '👋 We miss you!';
+    // Start a 5-second timer when tab becomes hidden
+    titleTimeout = setTimeout(() => {
+      document.title = '👋 We miss you';
+    }, 5000);
   } else {
+    // Clear the timer and restore original title when user comes back
+    clearTimeout(titleTimeout);
     document.title = originalTitle;
   }
 });
