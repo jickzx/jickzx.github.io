@@ -15,6 +15,16 @@ toggle.addEventListener('click', () => {
   toggle.textContent = next === 'light' ? '🌙' : '☀️';
 });
 
+// ===== Tab title change when user leaves
+const originalTitle = document.title;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    document.title = '👋 We miss you!';
+  } else {
+    document.title = originalTitle;
+  }
+});
+
 // ===== Contact form (demo only)
 const form = document.getElementById('contactForm');
 const statusEl = document.getElementById('formStatus');
@@ -23,7 +33,7 @@ form.addEventListener('submit', (e) => {
   statusEl.textContent = 'Sending…';
   // Demo: replace with your endpoint (Formspree/Resend/EmailJS/etc.)
   // fetch('YOUR_ENDPOINT', { method:'POST', body:new FormData(form) })
-  //  .then(() => statusEl.textContent = "Thanks! I'll get back to you soon.")
+  //  .then(() => statusEl.textContent = 'Thanks! I'll get back to you soon.')
   //  .catch(() => statusEl.textContent = 'Oops! Something went wrong.');
   setTimeout(() => {
     statusEl.textContent = "Thanks! I'll get back to you soon.";
