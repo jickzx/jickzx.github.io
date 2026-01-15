@@ -13,6 +13,16 @@
   :root{ --bg:#f7fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --ring: rgba(14,165,233,.25); --shadow: 0 10px 30px rgba(2,8,23,.08);}  
 }
 [data-theme="light"]{ --bg:#f7fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --ring: rgba(14,165,233,.25); --shadow: 0 10px 30px rgba(2,8,23,.08);} 
+[data-theme="brown"] {
+  --bg: #8B4513;
+  --panel: #A0522D;
+  --text: #FFF8DC;
+  --muted: #D2B48C;
+  --brand: #D2691E;
+  --brand-2: #CD853F;
+  --ring: rgba(210,105,30,.35);
+  --shadow: 0 10px 30px rgba(139,69,19,.45);
+}
 
 *{ box-sizing:border-box }
 html,body{ height:100% }

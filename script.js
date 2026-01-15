@@ -59,3 +59,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// ===== Easter egg: Toggle brown theme on 'poo' sequence
+let keySequence = '';
+let originalTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+document.addEventListener('keydown', (e) => {
+  keySequence += e.key.toLowerCase();
+  if (keySequence.includes('poo')) {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || originalTheme;
+    if (currentTheme === 'brown') {
+      document.documentElement.setAttribute('data-theme', originalTheme);
+      localStorage.setItem('theme', originalTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'brown');
+      localStorage.setItem('theme', 'brown');
+    }
+    keySequence = ''; // Reset sequence after activation
+  }
+  // Optional: Limit sequence length to prevent memory issues
+  if (keySequence.length > 10) keySequence = keySequence.slice(-10);
+});
