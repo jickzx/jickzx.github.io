@@ -23,7 +23,7 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     // Start a 5-second timer when tab becomes hidden
     titleTimeout = setTimeout(() => {
-      document.title = 'I miss you chat 😢';
+      document.title = 'I miss you 😢';
     }, 5000);
   } else {
     // Clear the timer and restore original title when user comes back
