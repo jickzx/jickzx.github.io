@@ -21,7 +21,7 @@ let titleTimeout;
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
-    // Start a 5-second timer when tab becomes hidden
+    // Start a 3-second timer when tab becomes hidden
     titleTimeout = setTimeout(() => {
       document.title = 'I miss you 😢';
     }, 3000);
