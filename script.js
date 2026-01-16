@@ -32,21 +32,21 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-// ===== Contact form (demo only)
-const form = document.getElementById('contactForm');
-const statusEl = document.getElementById('formStatus');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  statusEl.textContent = 'Sending…';
-  // Demo: replace with your endpoint (Formspree/Resend/EmailJS/etc.)
-  // fetch('YOUR_ENDPOINT', { method:'POST', body:new FormData(form) })
-  //  .then(() => statusEl.textContent = 'Thanks! I'll get back to you soon.')
-  //  .catch(() => statusEl.textContent = 'Oops! Something went wrong.');
-  setTimeout(() => {
-    statusEl.textContent = "Thanks! I'll get back to you soon.";
-  }, 500);
-  form.reset();
-});
+// ===== Contact form (demo only) - Commented out since contact section is not in HTML
+// const form = document.getElementById('contactForm');
+// const statusEl = document.getElementById('formStatus');
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   statusEl.textContent = 'Sending…';
+//   // Demo: replace with your endpoint (Formspree/Resend/EmailJS/etc.)
+//   // fetch('YOUR_ENDPOINT', { method:'POST', body:new FormData(form) })
+//   //  .then(() => statusEl.textContent = 'Thanks! I'll get back to you soon.')
+//   //  .catch(() => statusEl.textContent = 'Oops! Something went wrong.');
+//   setTimeout(() => {
+//     statusEl.textContent = "Thanks! I'll get back to you soon.";
+//   }, 500);
+//   form.reset();
+// });
 
 // ===== Smooth scroll for internal links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
