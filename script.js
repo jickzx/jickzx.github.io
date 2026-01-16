@@ -1,6 +1,38 @@
 // ===== Set Current Year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ===== GSAP Horizontal Scroll for Projects =====
+gsap.registerPlugin(ScrollTrigger);
+
+const projectsTrack = document.querySelector('.projects-track');
+const projectsWrapper = document.querySelector('.projects-wrapper');
+
+// Calculate how far to scroll horizontally
+const getScrollAmount = () => {
+  const trackWidth = projectsTrack.scrollWidth;
+  return -(trackWidth - window.innerWidth);
+};
+
+// Create the horizontal scroll animation
+const projectsAnimation = gsap.to(projectsTrack, {
+  x: getScrollAmount,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: projectsWrapper,
+    start: 'top top',
+    end: () => `+=${projectsTrack.scrollWidth}`,
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true
+  }
+});
+
+// Recalculate on window resize
+window.addEventListener('resize', () => {
+  ScrollTrigger.refresh();
+});
+
 // ===== Smooth Scroll for Internal Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
