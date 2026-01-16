@@ -35,18 +35,80 @@
       overflow-x: hidden;
     }
     
-    .gradient-bg {
+    /* Animated Background */
+    .animated-bg {
       position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
       z-index: -1;
-      opacity: 0.3;
-      background: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 50%);
+      overflow: hidden;
     }
     
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .shape-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--accent);
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-2);
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+    }
+    
+    .shape-3 {
+      width: 350px;
+      height: 350px;
+      background: #8b5cf6;
+      bottom: 10%;
+      left: 50%;
+      animation-delay: 10s;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(50px, -50px) scale(1.1);
+      }
+      66% {
+        transform: translate(-50px, 50px) scale(0.9);
+      }
+    }
+    
+    /* Grid Pattern Overlay */
+    .grid-overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    
+    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -86,6 +148,7 @@
       color: var(--white);
     }
     
+    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -99,6 +162,8 @@
       max-width: 1200px;
       width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     
     .hero-label {
@@ -191,35 +256,17 @@
       color: var(--gray);
     }
     
-    .disclaimer {
-      background: rgba(234, 179, 8, 0.1);
-      border: 1px solid rgba(234, 179, 8, 0.3);
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-      color: #fde047;
-      font-size: 0.9rem;
-    }
-    
-    /* Horizontal Scrolling Projects Section */
-    #projects {
-      height: 100vh;
+    /* Section */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
       position: relative;
-      overflow: hidden;
-    }
-    
-    .projects-container {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
+      z-index: 1;
     }
     
     .section-header {
-      position: absolute;
-      top: 6rem;
-      left: 2rem;
-      z-index: 10;
+      margin-bottom: 4rem;
     }
     
     .section-label {
@@ -227,7 +274,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gray);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
     
     .section-title {
@@ -237,118 +284,78 @@
       letter-spacing: -0.02em;
     }
     
-    .scroll-indicator {
-      position: absolute;
-      bottom: 3rem;
-      left: 2rem;
-      color: var(--gray);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .scroll-indicator::after {
-      content: '→';
-      animation: slideRight 1.5s infinite;
-    }
-    
-    @keyframes slideRight {
-      0%, 100% { transform: translateX(0); opacity: 1; }
-      50% { transform: translateX(10px); opacity: 0.5; }
-    }
-    
-    .projects-track {
-      display: flex;
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
-      padding: 0 2rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: transform 0.1s ease-out;
     }
     
-    .project-slide {
-      min-width: 500px;
-      height: 600px;
+    .project-card {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       overflow: hidden;
       transition: all 0.3s;
-      flex-shrink: 0;
+      cursor: pointer;
     }
     
-    .project-slide:hover {
+    .project-card:hover {
       border-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.02);
+      transform: translateY(-5px);
     }
     
-    .project-slide-image {
-      height: 60%;
+    .project-image {
+      aspect-ratio: 16/10;
       background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(34, 211, 238, 0.1) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       color: var(--accent);
-      font-size: 2rem;
-      position: relative;
+      font-size: 1.2rem;
     }
     
-    .project-slide-content {
-      padding: 2rem;
-      height: 40%;
-      display: flex;
-      flex-direction: column;
+    .project-content {
+      padding: 1.5rem;
     }
     
-    .project-slide-date {
+    .project-date {
       font-size: 0.85rem;
       color: var(--gray);
       margin-bottom: 0.5rem;
     }
     
-    .project-slide-title {
-      font-size: 1.8rem;
+    .project-title {
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
     }
     
-    .project-slide-description {
+    .project-description {
       color: var(--gray);
       margin-bottom: 1rem;
       line-height: 1.6;
-      flex-grow: 1;
     }
     
-    .project-slide-tags {
+    .project-tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
+      margin-bottom: 1rem;
     }
     
     .tag {
-      padding: 0.4rem 0.9rem;
+      padding: 0.3rem 0.8rem;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 50px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--gray);
     }
     
     /* About Section */
-    #about {
-      padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .about-header {
-      margin-bottom: 4rem;
-    }
-    
     .about-content {
       max-width: 900px;
       margin: 0 auto;
@@ -365,10 +372,13 @@
       line-height: 1.8;
     }
     
+    /* Footer */
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding: 3rem 2rem;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     
     .footer-links {
@@ -395,6 +405,31 @@
       font-size: 0.9rem;
     }
     
+    .disclaimer {
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      color: #fde047;
+      font-size: 0.9rem;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
     @media (max-width: 768px) {
       header {
         padding: 1rem;
@@ -412,16 +447,12 @@
         padding: 5rem 1rem 3rem;
       }
       
-      .project-slide {
-        min-width: 90vw;
+      section {
+        padding: 4rem 1rem;
       }
       
-      .section-header {
-        left: 1rem;
-      }
-      
-      .scroll-indicator {
-        left: 1rem;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
       
       .about-content {
@@ -436,7 +467,12 @@
   </style>
 </head>
 <body>
-  <div class="gradient-bg"></div>
+  <div class="animated-bg">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
   
   <header>
     <div class="logo">James Espinosa</div>
@@ -477,102 +513,98 @@
     </section>
 
     <section id="projects">
-      <div class="projects-container">
-        <div class="section-header">
-          <div class="section-label">Selected Work</div>
-          <h2 class="section-title">Projects</h2>
-        </div>
-        
-        <div class="scroll-indicator">Scroll to explore</div>
-        
-        <div class="projects-track" id="projectsTrack">
-          <article class="project-slide">
-            <div class="project-slide-image">Portfolio 2025</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">November 8, 2025</div>
-              <h3 class="project-slide-title">Personal Portfolio</h3>
-              <p class="project-slide-description">This Personal Portfolio is the project! A modern, responsive portfolio built from scratch with cutting-edge design principles.</p>
-              <div class="project-slide-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
+      <div class="section-header">
+        <div class="section-label">Selected Work</div>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-image">P0 Cover</div>
+          <div class="project-content">
+            <div class="project-date">November 8, 2025</div>
+            <h3 class="project-title">Personal Portfolio</h3>
+            <p class="project-description">This Personal Portfolio is the project! A modern, responsive portfolio built from scratch.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-slide">
-            <div class="project-slide-image">GameJam Winner</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">December 08, 2025</div>
-              <h3 class="project-slide-title">UoN CompSoc '25 GameJam</h3>
-              <p class="project-slide-description">Lightwork win (it really wasn't, it was so annoying to get it working). Built a complete game in 48 hours with a team of passionate developers.</p>
-              <div class="project-slide-tags">
-                <span class="tag">Unity</span>
-                <span class="tag">C#</span>
-                <span class="tag">Github</span>
-              </div>
+        <article class="project-card">
+          <div class="project-image">P1 Cover</div>
+          <div class="project-content">
+            <div class="project-date">December 08, 2025</div>
+            <h3 class="project-title">UoN CompSoc '25 GameJam</h3>
+            <p class="project-description">Lightwork win (it really wasn't, it was so annoying to get it working). Built a complete game in 48 hours.</p>
+            <div class="project-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Github</span>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-slide">
-            <div class="project-slide-image">IoT Project</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">October 24, 2025</div>
-              <h3 class="project-slide-title">HackNotts '25 Raspberry Pi</h3>
-              <p class="project-slide-description">Didn't win in first year but it doesn't matter because we won the gamejam. IoT project with real-time data processing and sensor integration.</p>
-              <div class="project-slide-tags">
-                <span class="tag">Node</span>
-                <span class="tag">Express</span>
-                <span class="tag">Postgres</span>
-              </div>
+        <article class="project-card">
+          <div class="project-image">P2 Cover</div>
+          <div class="project-content">
+            <div class="project-date">October 24, 2025</div>
+            <h3 class="project-title">HackNotts '25 Raspberry Pi</h3>
+            <p class="project-description">Didn't win in first year but it doesn't matter because we won the gamejam. IoT project with real-time data processing.</p>
+            <div class="project-tags">
+              <span class="tag">Node</span>
+              <span class="tag">Express</span>
+              <span class="tag">Postgres</span>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-slide">
-            <div class="project-slide-image">Data Analysis</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">June 10, 2023</div>
-              <h3 class="project-slide-title">University Probability Checker</h3>
-              <p class="project-slide-description">Year 13 Computer Science Coursework - 53/70 marks. If I could go back in time, I'd definitely get max marks. Built a comprehensive university application analyzer.</p>
-              <div class="project-slide-tags">
-                <span class="tag">Python</span>
-                <span class="tag">SQL</span>
-                <span class="tag">CSV</span>
-              </div>
+        <article class="project-card">
+          <div class="project-image">P3 Cover</div>
+          <div class="project-content">
+            <div class="project-date">June 10, 2023</div>
+            <h3 class="project-title">University Probability Checker</h3>
+            <p class="project-description">Year 13 Computer Science Coursework - 53/70 marks. If I could go back in time, I'd definitely get max marks.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">CSV</span>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-slide">
-            <div class="project-slide-image">Chess Engine</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">July 5, 2025</div>
-              <h3 class="project-slide-title">Unfinished Chess Game</h3>
-              <p class="project-slide-description">A work-in-progress chess game built in Java. Planning to add AI opponents and multiplayer functionality. Implementing classic chess rules and game logic.</p>
-              <div class="project-slide-tags">
-                <span class="tag">Java</span>
-              </div>
+        <article class="project-card">
+          <div class="project-image">P4 Cover</div>
+          <div class="project-content">
+            <div class="project-date">July 5, 2025</div>
+            <h3 class="project-title">Unfinished Chess Game</h3>
+            <p class="project-description">A work-in-progress chess game built in Java. Planning to add AI opponents and multiplayer functionality.</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-slide">
-            <div class="project-slide-image">Web Dev</div>
-            <div class="project-slide-content">
-              <div class="project-slide-date">December 05, 2023</div>
-              <h3 class="project-slide-title">Year 12 HTML Project</h3>
-              <p class="project-slide-description">Oh yeah this totally was funny to do. Early exploration into web development, learning the fundamentals of HTML, CSS, and JavaScript.</p>
-              <div class="project-slide-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
+        <article class="project-card">
+          <div class="project-image">P5 Cover</div>
+          <div class="project-content">
+            <div class="project-date">December 05, 2023</div>
+            <h3 class="project-title">Year 12 HTML Project</h3>
+            <p class="project-description">Oh yeah this totally was funny to do. Early exploration into web development.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="about">
-      <div class="about-header">
+      <div class="section-header">
         <div class="section-label">Get to Know Me</div>
         <h2 class="section-title">About</h2>
       </div>
@@ -608,24 +640,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     
-    // Horizontal scroll for projects
-    const projectsSection = document.getElementById('projects');
-    const projectsTrack = document.getElementById('projectsTrack');
-    
-    let scrollProgress = 0;
-    const maxScroll = projectsTrack.scrollWidth - window.innerWidth;
-    
-    window.addEventListener('scroll', () => {
-      const rect = projectsSection.getBoundingClientRect();
-      
-      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-        const sectionProgress = Math.abs(rect.top) / (rect.height - window.innerHeight);
-        scrollProgress = Math.min(sectionProgress * maxScroll, maxScroll);
-        projectsTrack.style.transform = `translateY(-50%) translateX(-${scrollProgress}px)`;
-      }
-    });
-    
-    // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -634,6 +648,24 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.project-card, .about-content').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
