@@ -60,7 +60,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ===== Easter egg: Toggle brown theme on 'poo' sequence
+// ===== Easter egg: Toggle brown theme on 'poo' sequence with descending animation
 let keySequence = '';
 let originalTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
@@ -69,11 +69,34 @@ document.addEventListener('keydown', (e) => {
   if (keySequence.endsWith('poo')) {
     const currentTheme = document.documentElement.getAttribute('data-theme') || originalTheme;
     if (currentTheme === 'brown') {
+      // If already brown, revert instantly
       document.documentElement.setAttribute('data-theme', originalTheme);
       localStorage.setItem('theme', originalTheme);
     } else {
-      document.documentElement.setAttribute('data-theme', 'brown');
-      localStorage.setItem('theme', 'brown');
+      // Animate descending brown overlay
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: #8B4513; /* Brown background */
+        color: #FFF8DC; /* Brown text */
+        z-index: 9999;
+        transition: height 0.5s ease-in; /* Starts slow, gets quicker */
+        pointer-events: none;
+      `;
+      document.body.appendChild(overlay);
+      // Trigger animation
+      overlay.offsetHeight; // Force reflow
+      overlay.style.height = '100%';
+      // After animation, apply theme and remove overlay
+      setTimeout(() => {
+        document.documentElement.setAttribute('data-theme', 'brown');
+        localStorage.setItem('theme', 'brown');
+        document.body.removeChild(overlay);
+      }, 500);
     }
     keySequence = ''; // Reset sequence after activation
   }
