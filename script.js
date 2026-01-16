@@ -66,7 +66,7 @@ let originalTheme = localStorage.getItem('theme') || (window.matchMedia('(prefer
 
 document.addEventListener('keydown', (e) => {
   keySequence += e.key.toLowerCase();
-  if (keySequence.includes('poo')) {
+  if (keySequence.endsWith('poo')) {
     const currentTheme = document.documentElement.getAttribute('data-theme') || originalTheme;
     if (currentTheme === 'brown') {
       document.documentElement.setAttribute('data-theme', originalTheme);
