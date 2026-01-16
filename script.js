@@ -65,8 +65,11 @@ let keySequence = '';
 let originalTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
 document.addEventListener('keydown', (e) => {
+  console.log('Key pressed:', e.key); // Temporary debug log
   keySequence += e.key.toLowerCase();
+  console.log('Sequence:', keySequence); // Temporary debug log
   if (keySequence.endsWith('poo')) {
+    console.log('Poo sequence detected!'); // Temporary debug log
     const currentTheme = document.documentElement.getAttribute('data-theme') || originalTheme;
     if (currentTheme === 'brown') {
       // If already brown, revert instantly
@@ -88,6 +91,7 @@ document.addEventListener('keydown', (e) => {
         pointer-events: none;
       `;
       document.body.appendChild(overlay);
+      console.log('Overlay added'); // Temporary debug log
       // Trigger animation
       overlay.offsetHeight; // Force reflow
       overlay.style.height = '100%';
@@ -96,7 +100,8 @@ document.addEventListener('keydown', (e) => {
         document.documentElement.setAttribute('data-theme', 'brown');
         localStorage.setItem('theme', 'brown');
         document.body.removeChild(overlay);
-      }, 3000);
+        console.log('Theme applied and overlay removed'); // Temporary debug log
+      }, 500); // Match the transition duration
     }
     keySequence = ''; // Reset sequence after activation
   }
