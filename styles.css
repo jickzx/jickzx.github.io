@@ -324,7 +324,7 @@ section {
 }
 
 .project-card {
-  min-width: 450px;
+  width: 300px; /* Adjust this value to make cards smaller or larger as needed */
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
