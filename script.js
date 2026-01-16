@@ -96,7 +96,7 @@ document.addEventListener('keydown', (e) => {
         document.documentElement.setAttribute('data-theme', 'brown');
         localStorage.setItem('theme', 'brown');
         document.body.removeChild(overlay);
-      }, 500);
+      }, 3000);
     }
     keySequence = ''; // Reset sequence after activation
   }
