@@ -1,7 +1,7 @@
-// ===== Set Current Year =====
+// Set current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== Smooth Scroll for Internal Links =====
+// Smooth scroll for internal links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -12,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== Fade In Animation on Scroll =====
+// Fade in animation on scroll
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
