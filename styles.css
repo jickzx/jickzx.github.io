@@ -289,43 +289,13 @@ section {
 }
 
 /* ===== Projects Grid ===== */
-#projects {
-  padding: 0;
-  max-width: none;
-  overflow: hidden;
-}
-
-.projects-wrapper {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.section-header {
-  position: absolute;
-  top: 6rem;
-  left: 2rem;
-  z-index: 10;
-  margin-bottom: 0;
-}
-
-.projects-container {
-  width: 100%;
-  overflow: hidden;
-  padding: 2rem 0;
-}
-
-.projects-track {
-  display: flex;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  padding: 0 2rem;
-  will-change: transform;
 }
 
 .project-card {
-  width: 300px; /* Adjust this value to make cards smaller or larger as needed */
-  flex-shrink: 0;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -390,13 +360,9 @@ section {
 }
 
 /* ===== About Section ===== */
-#about {
-  max-width: 1200px;
-}
-
 .about-content {
   max-width: 900px;
-  margin: 0 auto 4rem;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -408,139 +374,6 @@ section {
   color: var(--gray);
   margin-bottom: 1.5rem;
   line-height: 1.8;
-}
-
-/* About Subsections */
-.about-subsection {
-  margin-bottom: 5rem;
-}
-
-.subsection-title {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  letter-spacing: -0.02em;
-}
-
-/* Scrolling Tech Logos */
-.logo-scroll-container {
-  overflow: hidden;
-  padding: 2rem 0;
-  margin: 0 -2rem;
-  position: relative;
-}
-
-.logo-scroll-container::before,
-.logo-scroll-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 100px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.logo-scroll-container::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--black) 0%, transparent 100%);
-}
-
-.logo-scroll-container::after {
-  right: 0;
-  background: linear-gradient(270deg, var(--black) 0%, transparent 100%);
-}
-
-.logo-scroll-track {
-  display: flex;
-  gap: 3rem;
-  animation: scroll 30s linear infinite;
-  width: fit-content;
-}
-
-.logo-scroll-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.tech-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  min-width: 120px;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  transition: all 0.3s;
-}
-
-.tech-logo:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-5px);
-}
-
-.tech-logo img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.tech-logo span {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--gray);
-}
-
-/* About Grid for Books, Games, Hobbies */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.about-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.3s;
-  text-align: center;
-}
-
-.about-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-5px);
-}
-
-.item-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.about-item h4 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  letter-spacing: -0.01em;
-}
-
-.about-item p {
-  color: var(--gray);
-  line-height: 1.6;
-  font-size: 0.95rem;
 }
 
 /* ===== Footer ===== */
@@ -614,30 +447,12 @@ footer {
     padding: 4rem 1rem;
   }
   
-  .project-card {
-    min-width: 85vw;
-  }
-  
-  .section-header {
-    left: 1rem;
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
   
   .about-content {
     padding: 2rem 1.5rem;
-  }
-  
-  .tech-logo {
-    min-width: 100px;
-    padding: 1rem;
-  }
-  
-  .tech-logo img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .about-grid {
-    grid-template-columns: 1fr;
   }
   
   .footer-links {
