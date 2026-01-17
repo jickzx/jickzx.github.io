@@ -6,17 +6,574 @@
   <title>James Espinosa's Portfolio</title>
   <meta name="description" content="The portfolio of James Espinosa's projects, experience, and contact details." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%230ea5e9'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='140' font-family='Arial,sans-serif' fill='white'%3EJE%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #808080;
+      --light-gray: #e5e5e5;
+      --accent: #0ea5e9;
+      --accent-2: #22d3ee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== Animated Background ===== */
+    .animated-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+    .shape-1 { width: 400px; height: 400px; background: var(--accent); top: 10%; left: 10%; animation-delay: 0s; }
+    .shape-2 { width: 300px; height: 300px; background: var(--accent-2); top: 60%; right: 10%; animation-delay: 5s; }
+    .shape-3 { width: 350px; height: 350px; background: #8b5cf6; bottom: 10%; left: 50%; animation-delay: 10s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(50px, -50px) scale(1.1); }
+      66% { transform: translate(-50px, 50px) scale(0.9); }
+    }
+
+    /* ===== Grid Pattern Overlay ===== */
+    .grid-overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    nav a:hover { color: var(--white); }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-label {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: var(--gray);
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--white) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--white); color: var(--black); }
+    .btn-primary:hover { background: var(--light-gray); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-secondary:hover { border-color: var(--white); transform: translateY(-2px); }
+    .tech-stack { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 4rem; }
+    .tech-tag {
+      padding: 0.5rem 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    .disclaimer {
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      color: #fde047;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Section Styles ===== */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ===== Projects Grid ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .project-card:hover { border-color: rgba(255, 255, 255, 0.3); transform: translateY(-5px); }
+    .project-image {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(34, 211, 238, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.2rem;
+      overflow: hidden;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .project-card:hover .project-image img { transform: scale(1.05); }
+    .project-content { padding: 1.5rem; }
+    .project-date { font-size: 0.85rem; color: var(--gray); margin-bottom: 0.5rem; }
+    .project-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .project-description { color: var(--gray); margin-bottom: 1rem; line-height: 1.6; }
+    .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag {
+      padding: 0.3rem 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* ===== About Section ===== */
+    #about { max-width: 1200px; }
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+    }
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .about-subsection { margin-bottom: 5rem; }
+    .subsection-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    /* Scrolling Tech Logos */
+    .logo-scroll-container { overflow: hidden; padding: 2rem 0; margin: 0 -2rem; position: relative; }
+    .logo-scroll-container::before,
+    .logo-scroll-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .logo-scroll-container::before { left: 0; background: linear-gradient(90deg, var(--black) 0%, transparent 100%); }
+    .logo-scroll-container::after { right: 0; background: linear-gradient(270deg, var(--black) 0%, transparent 100%); }
+
+    .logo-scroll-track { display: flex; gap: 3rem; animation: scroll 30s linear infinite; width: fit-content; }
+    .logo-scroll-track:hover { animation-play-state: paused; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .tech-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      min-width: 120px;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+    .tech-logo:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-5px); }
+    .tech-logo img { width: 60px; height: 60px; object-fit: contain; }
+    .tech-logo span { font-size: 0.9rem; font-weight: 600; color: var(--gray); }
+
+    /* About Grid (Books, Games, Hobbies) */
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .about-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .about-item:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-5px); }
+    .item-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    .game-item .game-logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 1rem;
+      transition: all 0.3s;
+    }
+    .game-item:hover .game-logo { background: rgba(255, 255, 255, 0.1); transform: scale(1.05); }
+    .game-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+    .about-item h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+    .about-item p { color: var(--gray); line-height: 1.6; font-size: 0.95rem; }
+
+    /* ===== OPTION A: Desk / Shelf ===== */
+    .desk-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .desk-hint {
+      text-align: center;
+      color: var(--gray);
+      margin-top: -1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .desk-stage {
+      position: relative;
+      padding: 1.5rem 1.5rem 2.25rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .desk-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 200px at 50% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
+        radial-gradient(500px 220px at 20% 70%, rgba(14, 165, 233, 0.10), transparent 60%),
+        radial-gradient(450px 220px at 80% 70%, rgba(139, 92, 246, 0.10), transparent 60%);
+      opacity: 0.8;
+    }
+
+    .desk-shelf {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      perspective: 900px;
+      z-index: 1;
+    }
+
+    .desk-item {
+      width: min(150px, 38vw);
+      height: 150px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+      outline: none;
+    }
+
+    .desk-item:hover,
+    .desk-item:focus-visible {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-8px) rotateX(8deg);
+    }
+
+    .desk-item.is-active {
+      border-color: rgba(34, 211, 238, 0.55);
+      background: rgba(34, 211, 238, 0.06);
+      transform: translateY(-10px) rotateX(10deg) scale(1.03);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .desk-item .emoji {
+      font-size: 2.4rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .desk-item .label {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      font-size: 1rem;
+      color: var(--white);
+      display: block;
+    }
+    .desk-item .sub {
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      display: block;
+    }
+
+    .desk-base {
+      position: relative;
+      height: 18px;
+      margin: 1.25rem auto 0;
+      max-width: 760px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      z-index: 1;
+    }
+
+    .desk-panel {
+      margin-top: 1.5rem;
+      padding: 1.5rem 1.5rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .desk-panel.is-open { display: block; }
+
+    .desk-panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .desk-panel-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .desk-panel-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      padding: 0.3rem 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    .desk-panel p {
+      color: var(--gray);
+      line-height: 1.75;
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .desk-close {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      flex: 0 0 auto;
+    }
+    .desk-close:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.30);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+      .floating-shape, .logo-scroll-track { animation: none !important; }
+      .desk-item { transition: none !important; }
+      .project-card, .about-item, .btn { transition: none !important; }
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--white); }
+    .copyright { color: var(--gray); font-size: 0.9rem; }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 768px) {
+      header { padding: 1rem; }
+      nav ul { gap: 1rem; }
+      nav a { font-size: 0.85rem; }
+      .hero { padding: 5rem 1rem 3rem; }
+      section { padding: 4rem 1rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-content { padding: 2rem 1.5rem; }
+      .tech-logo { min-width: 100px; padding: 1rem; }
+      .tech-logo img { width: 50px; height: 50px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-links { flex-direction: column; gap: 1rem; }
+      .game-item .game-logo { width: 100px; height: 100px; }
+      .desk-item { width: min(160px, 42vw); height: 140px; }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Animated Background -->
   <div class="animated-bg">
     <div class="floating-shape shape-1"></div>
     <div class="floating-shape shape-2"></div>
     <div class="floating-shape shape-3"></div>
   </div>
   <div class="grid-overlay"></div>
-  
+
   <header>
     <div class="logo">James Espinosa</div>
     <nav>
@@ -29,7 +586,6 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <div class="hero-label">Computer Science Student</div>
@@ -37,9 +593,7 @@
           ⚠️ DISCLAIMER: THIS IS UNFINISHED. I AM CURRENTLY IN THE MIDDLE OF EXAMS. AFTER EXAM SEASON IS OVER, I WILL PROPERLY WORK ON THIS.
         </div>
         <h1>Hey! I'm James Espinosa!</h1>
-        <p>
-          1st year Computer Science student at the University of Nottingham!
-        </p>
+        <p>1st year Computer Science student at the University of Nottingham!</p>
         <div class="cta-buttons">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -53,18 +607,16 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
       <div class="section-header">
         <div class="section-label">Selected Work</div>
         <h2 class="section-title">Projects</h2>
       </div>
-      
+
       <div class="projects-grid">
-        <!-- Personal Portfolio-->
         <article class="project-card">
           <div class="project-image">P0 Cover</div>
-            <div class="project-content">
+          <div class="project-content">
             <div class="project-date">November 8, 2025</div>
             <h3 class="project-title">Personal Portfolio</h3>
             <p class="project-description">This Personal Portfolio is the project! A modern, responsive portfolio built from scratch.</p>
@@ -76,7 +628,6 @@
           </div>
         </article>
 
-        <!-- Gamejam -->
         <article class="project-card">
           <div class="project-image">
             <img src="https://media.licdn.com/dms/image/v2/D4E22AQH4FijlyatVsw/feedshare-shrink_2048_1536/B4EZt185lxJ0Aw-/0/1767210458941?e=1770249600&v=beta&t=j-sFgnYAcnEQU2HPSHD_qDFBzYvEVZspisu6lnq8LiQ" alt="Project Screenshot">
@@ -93,7 +644,6 @@
           </div>
         </article>
 
-        <!-- HackNotts '25 -->
         <article class="project-card">
           <div class="project-image">P2 Cover</div>
           <div class="project-content">
@@ -108,7 +658,6 @@
           </div>
         </article>
 
-        <!-- A level CS CW -->
         <article class="project-card">
           <div class="project-image">no photo yet...</div>
           <div class="project-content">
@@ -123,7 +672,6 @@
           </div>
         </article>
 
-        <!-- Chess -->
         <article class="project-card">
           <div class="project-image">P4 Cover</div>
           <div class="project-content">
@@ -136,11 +684,10 @@
           </div>
         </article>
 
-        <!-- Year 12 HTML Project -->
         <article class="project-card">
           <div class="project-image">
             <img src="images/yes.png" alt="Year 12 screenshot">
-            </div>
+          </div>
           <div class="project-content">
             <div class="project-date">December 05, 2023</div>
             <h3 class="project-title">Year 12 HTML Project</h3>
@@ -155,114 +702,119 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
       <div class="section-header">
         <div class="section-label">Get to Know Me</div>
         <h2 class="section-title">About</h2>
       </div>
-      
+
       <div class="about-content">
-        <p>
-          Hey! I'm James, a 1st year Computer Science student at the University of Nottingham. I'm passionate about building innovative solutions and constantly expanding my skill set.
-        </p>
-        <p>
-          When I'm not coding, you can find me exploring new technologies, participating in hackathons, or working on personal projects that challenge me to grow as a developer.
-        </p>
+        <p>Hey! I'm James, a 1st year Computer Science student at the University of Nottingham. I'm passionate about building innovative solutions and constantly expanding my skill set.</p>
+        <p>When I'm not coding, you can find me exploring new technologies, participating in hackathons, or working on personal projects that challenge me to grow as a developer.</p>
       </div>
 
-      <!-- Coding Languages Subsection -->
+      <!-- Languages -->
       <div class="about-subsection">
         <h3 class="subsection-title">Languages</h3>
         <div class="logo-scroll-container">
           <div class="logo-scroll-track">
-            <!-- First set of logos -->
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-              <span>Python</span>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><span>C</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"><span>Unity</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL"><span>SQL</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+
+            <!-- Duplicate set -->
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"><span>C</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"><span>Unity</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL"><span>SQL</span></div>
+            <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW: Desk / Shelf Interaction -->
+      <div class="about-subsection">
+        <h3 class="subsection-title">Hobbies & Interests</h3>
+        <div class="desk-wrap">
+          <div class="desk-hint">Click an item on the shelf.</div>
+
+          <div class="desk-stage" aria-label="Interactive shelf">
+            <div class="desk-shelf" role="list">
+              <button class="desk-item" role="listitem" type="button"
+                data-key="hackathons"
+                aria-controls="deskPanel"
+                aria-expanded="false">
+                <span class="emoji" aria-hidden="true">💻</span>
+                <span class="label">Hackathons</span>
+                <span class="sub">24h builds</span>
+              </button>
+
+              <button class="desk-item" role="listitem" type="button"
+                data-key="reading"
+                aria-controls="deskPanel"
+                aria-expanded="false">
+                <span class="emoji" aria-hidden="true">📚</span>
+                <span class="label">Reading</span>
+                <span class="sub">fiction + non-fiction</span>
+              </button>
+
+              <button class="desk-item" role="listitem" type="button"
+                data-key="gaming"
+                aria-controls="deskPanel"
+                aria-expanded="false">
+                <span class="emoji" aria-hidden="true">🎮</span>
+                <span class="label">Gaming</span>
+                <span class="sub">comfort games</span>
+              </button>
+
+              <button class="desk-item" role="listitem" type="button"
+                data-key="fitness"
+                aria-controls="deskPanel"
+                aria-expanded="false">
+                <span class="emoji" aria-hidden="true">🏋️</span>
+                <span class="label">Fitness</span>
+                <span class="sub">gym</span>
+              </button>
+
+              <button class="desk-item" role="listitem" type="button"
+                data-key="content"
+                aria-controls="deskPanel"
+                aria-expanded="false">
+                <span class="emoji" aria-hidden="true">🎬</span>
+                <span class="label">Content</span>
+                <span class="sub">TikTok</span>
+              </button>
             </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-              <span>Java</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-              <span>C</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
-              <span>C#</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-              <span>JavaScript</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-              <span>HTML</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-              <span>CSS</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
-              <span>Unity</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL">
-              <span>SQL</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-              <span>Git</span>
-            </div>
-            <!-- Duplicate set for seamless loop -->
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-              <span>Python</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-              <span>Java</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-              <span>C</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
-              <span>C#</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-              <span>JavaScript</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-              <span>HTML</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-              <span>CSS</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
-              <span>Unity</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL">
-              <span>SQL</span>
-            </div>
-            <div class="tech-logo">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-              <span>Git</span>
+
+            <div class="desk-base" aria-hidden="true"></div>
+
+            <div id="deskPanel" class="desk-panel" role="region" aria-live="polite">
+              <div class="desk-panel-header">
+                <div>
+                  <div class="desk-panel-title" id="deskPanelTitle">Title</div>
+                  <div class="desk-panel-badges" id="deskPanelBadges"></div>
+                </div>
+                <button class="desk-close" type="button" id="deskCloseBtn" aria-label="Close details">Close</button>
+              </div>
+              <p id="deskPanelBody"></p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Books Subsection -->
+      <!-- Books (keep your old sections if you still want them) -->
       <div class="about-subsection">
         <h3 class="subsection-title">Books I've Read</h3>
         <div class="about-grid">
@@ -284,7 +836,7 @@
         </div>
       </div>
 
-      <!-- Games Subsection -->
+      <!-- Games -->
       <div class="about-subsection">
         <h3 class="subsection-title">Favourite Games</h3>
         <div class="about-grid">
@@ -293,7 +845,7 @@
               <img src="https://destiny.wiki.gallery/images/1/19/Destiny-symbol-black.png" alt="Destiny">
             </div>
             <h4>Destiny</h4>
-            <p>Originally bought as a Christmas gift, I Used to play this game non-stop from 2015-2024.</p>
+            <p>Originally bought as a Christmas gift, I used to play this game non-stop from 2015-2024.</p>
           </div>
           <div class="about-item game-item">
             <div class="game-logo">
@@ -312,32 +864,13 @@
         </div>
       </div>
 
-      <!-- Hobbies Subsection -->
+      <!-- (Optional) Keep your old hobbies grid below, or delete it now that the shelf exists -->
+      <!--
       <div class="about-subsection">
-        <h3 class="subsection-title">Hobbies & Interests</h3>
-        <div class="about-grid">
-          <div class="about-item">
-            <div class="item-icon">💻</div>
-            <h4>University Hackathons</h4>
-            <p>I find these exhausting but fun to collaborate with others and finish a working hardware/software project within 24 hours.</p>
-          </div>
-          <div class="about-item">
-            <div class="item-icon">🎵</div>
-            <h4>Reading Books</h4>
-            <p>I love fiction, and sometimes non-fiction! My first book that got me hooked was "The Trading Game"</p>
-          </div>
-          <div class="about-item">
-            <div class="item-icon">🏋️</div>
-            <h4>Fitness</h4>
-            <p>I love going to the gym and not ONLY coding</p>
-          </div>
-          <div class="about-item">
-            <div class="item-icon">🎬</div>
-            <h4>Content Creation</h4>
-            <p>I make silly videos on TikTok</p>
-          </div>
-        </div>
+        <h3 class="subsection-title">Hobbies & Interests (Old)</h3>
+        <div class="about-grid"> ... </div>
       </div>
+      -->
     </section>
   </main>
 
@@ -352,6 +885,132 @@
     <p class="copyright">© <span id="year"></span> James Espinosa</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // ===== Set Current Year =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Smooth Scroll for Internal Links =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ===== Fade In Animation on Scroll =====
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.project-card, .about-content').forEach(el => observer.observe(el));
+
+    // ===== Desk / Shelf Interaction =====
+    const deskData = {
+      hackathons: {
+        title: "University Hackathons",
+        badges: ["Teamwork", "24h sprint", "Hardware/Software"],
+        body: "I find these exhausting but fun — collaborating with others and finishing something real within 24 hours is a different kind of adrenaline."
+      },
+      reading: {
+        title: "Reading Books",
+        badges: ["Fiction", "Non-fiction", "Wind-down"],
+        body: "I love fiction (and sometimes non-fiction). The first book that got me hooked was “The Trading Game”."
+      },
+      gaming: {
+        title: "Gaming",
+        badges: ["Destiny", "Warframe", "Minecraft"],
+        body: "My comfort zone. I like games that either feel rewarding to master or let me chill and build for hours."
+      },
+      fitness: {
+        title: "Fitness",
+        badges: ["Gym", "Consistency", "Balance"],
+        body: "Going to the gym keeps me grounded. It’s a good counterbalance to spending a lot of time at a desk."
+      },
+      content: {
+        title: "Content Creation",
+        badges: ["TikTok", "Editing", "Fun"],
+        body: "I make silly videos on TikTok — it’s a fun creative outlet and I like learning the editing side of it."
+      }
+    };
+
+    const deskItems = Array.from(document.querySelectorAll('.desk-item'));
+    const panel = document.getElementById('deskPanel');
+    const panelTitle = document.getElementById('deskPanelTitle');
+    const panelBadges = document.getElementById('deskPanelBadges');
+    const panelBody = document.getElementById('deskPanelBody');
+    const closeBtn = document.getElementById('deskCloseBtn');
+
+    let activeKey = null;
+
+    function setExpanded(btn, expanded) {
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    function clearActive() {
+      deskItems.forEach(b => {
+        b.classList.remove('is-active');
+        setExpanded(b, false);
+      });
+      activeKey = null;
+    }
+
+    function openPanel(key, buttonEl) {
+      const data = deskData[key];
+      if (!data) return;
+
+      // Toggle off if clicking same item
+      if (activeKey === key) {
+        closePanel();
+        return;
+      }
+
+      activeKey = key;
+      clearActive();
+      buttonEl.classList.add('is-active');
+      setExpanded(buttonEl, true);
+
+      panelTitle.textContent = data.title;
+      panelBody.textContent = data.body;
+
+      panelBadges.innerHTML = "";
+      data.badges.forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'badge';
+        span.textContent = t;
+        panelBadges.appendChild(span);
+      });
+
+      panel.classList.add('is-open');
+      // Small nudge into view if needed
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closePanel() {
+      panel.classList.remove('is-open');
+      clearActive();
+    }
+
+    deskItems.forEach(btn => {
+      btn.addEventListener('click', () => openPanel(btn.dataset.key, btn));
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openPanel(btn.dataset.key, btn);
+        }
+        if (e.key === 'Escape') closePanel();
+      });
+    });
+
+    closeBtn.addEventListener('click', closePanel);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePanel();
+    });
+  </script>
 </body>
 </html>
