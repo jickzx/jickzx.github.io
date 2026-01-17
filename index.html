@@ -9,7 +9,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="gradient-bg"></div>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
   
   <header>
     <div class="logo">James Espinosa</div>
@@ -162,11 +168,167 @@
         <p>
           When I'm not coding, you can find me exploring new technologies, participating in hackathons, or working on personal projects that challenge me to grow as a developer.
         </p>
-        <div class="tech-stack" style="justify-content: flex-start; margin-top: 2rem;">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">C</span>
-          <span class="tech-tag">Java</span>
-          <span class="tech-tag">More coming soon...</span>
+      </div>
+
+      <!-- Coding Languages Subsection -->
+      <div class="about-subsection">
+        <h3 class="subsection-title">Languages & Technologies</h3>
+        <div class="logo-scroll-container">
+          <div class="logo-scroll-track">
+            <!-- First set of logos -->
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+              <span>Python</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+              <span>Java</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+              <span>C</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+              <span>C#</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+              <span>HTML</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+              <span>CSS</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+              <span>Unity</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL">
+              <span>SQL</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+              <span>Git</span>
+            </div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+              <span>Python</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+              <span>Java</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+              <span>C</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+              <span>C#</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+              <span>HTML</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+              <span>CSS</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+              <span>Unity</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL">
+              <span>SQL</span>
+            </div>
+            <div class="tech-logo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+              <span>Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books Subsection -->
+      <div class="about-subsection">
+        <h3 class="subsection-title">Books I've Read</h3>
+        <div class="about-grid">
+          <div class="about-item">
+            <div class="item-icon">📚</div>
+            <h4>Clean Code</h4>
+            <p>Robert C. Martin - Essential principles for writing maintainable code</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">📖</div>
+            <h4>The Pragmatic Programmer</h4>
+            <p>David Thomas & Andrew Hunt - Your journey to mastery</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">📕</div>
+            <h4>Cracking the Coding Interview</h4>
+            <p>Gayle Laakmann McDowell - 189 programming questions and solutions</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Games Subsection -->
+      <div class="about-subsection">
+        <h3 class="subsection-title">Favourite Games</h3>
+        <div class="about-grid">
+          <div class="about-item">
+            <div class="item-icon">🎮</div>
+            <h4>Valorant</h4>
+            <p>Tactical FPS - Love the strategic gameplay and competitive nature</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">🎯</div>
+            <h4>League of Legends</h4>
+            <p>MOBA - Complex strategy and teamwork make every match unique</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">⚔️</div>
+            <h4>Elden Ring</h4>
+            <p>Action RPG - Challenging gameplay with incredible world design</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hobbies Subsection -->
+      <div class="about-subsection">
+        <h3 class="subsection-title">Hobbies & Interests</h3>
+        <div class="about-grid">
+          <div class="about-item">
+            <div class="item-icon">💻</div>
+            <h4>Hackathons</h4>
+            <p>Love the intensity of building projects in 24-48 hours with a team</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">🎵</div>
+            <h4>Music Production</h4>
+            <p>Creating beats and experimenting with different sounds in my free time</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">🏋️</div>
+            <h4>Fitness</h4>
+            <p>Staying active with gym sessions and maintaining a healthy lifestyle</p>
+          </div>
+          <div class="about-item">
+            <div class="item-icon">🎬</div>
+            <h4>Content Creation</h4>
+            <p>Making tech videos and sharing my coding journey on TikTok</p>
+          </div>
         </div>
       </div>
     </section>
