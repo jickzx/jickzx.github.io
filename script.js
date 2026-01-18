@@ -57,7 +57,16 @@ const projectData = {
   gamejam: {
     title: "UoN CompSoc '25 GameJam",
     date: "December 08, 2025",
-    image: "https://media.licdn.com/dms/image/v2/D4E22AQH4FijlyatVsw/feedshare-shrink_2048_1536/B4EZt185lxJ0Aw-/0/1767210458941?e=1770249600&v=beta&t=j-sFgnYAcnEQU2HPSHD_qDFBzYvEVZspisu6lnq8LiQ",
+    media: [
+      {
+        type: "image",
+        src: "https://media.licdn.com/dms/image/v2/D4E22AQH4FijlyatVsw/feedshare-shrink_2048_1536/B4EZt185lxJ0Aw-/0/1767210458941?e=1770249600&v=beta&t=j-sFgnYAcnEQU2HPSHD_qDFBzYvEVZspisu6lnq8LiQ"
+      },
+      {
+        type: "video",
+        src: "https://www.youtube.com/embed/Hrmt9tdTrS4"
+      }
+    ],
     description: "An exciting snowball stacking game created during the University of Nottingham Computer Science Society GameJam.",
     fullDescription: `During the intense 48-hour GameJam event, our team created a physics-based snowball stacking game that challenges players with progressively harder levels.
     
@@ -76,6 +85,12 @@ const projectData = {
   hacknotts: {
     title: "HackNotts '25 Raspberry Pi Chatbot",
     date: "October 24, 2025",
+    media: [
+      {
+        type: "video",
+        src: "https://www.youtube.com/embed/_9KZp1zetrI"
+      }
+    ],
     description: "An AI-powered chatbot running on a Raspberry Pi, built during the HackNotts hackathon.",
     fullDescription: `Within just 25 hours at HackNotts, we built a fully functional AI chatbot that runs entirely on a Raspberry Pi. This project challenged us to optimize AI models to run on limited hardware while maintaining responsive performance.
     
@@ -167,17 +182,70 @@ function openProjectPanel(projectId) {
     </div>
   `;
 
-  // Add image if exists
-  if (project.image) {
+  // Add media carousel if project has media array
+  if (project.media && project.media.length > 0) {
+    contentHTML += `
+      <div class="media-carousel">
+        <div class="media-container" id="media-container">
+    `;
+    
+    project.media.forEach((item, index) => {
+      if (item.type === "image") {
+        contentHTML += `
+          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <div class="panel-image">
+              <img src="${item.src}" alt="${project.title}">
+            </div>
+          </div>
+        `;
+      } else if (item.type === "video") {
+        contentHTML += `
+          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <div class="panel-video">
+              <iframe src="${item.src}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+          </div>
+        `;
+      }
+    });
+    
+    contentHTML += `
+        </div>
+    `;
+    
+    // Add navigation buttons if more than one media item
+    if (project.media.length > 1) {
+      contentHTML += `
+        <button class="media-nav media-prev" onclick="changeMedia(-1)">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <button class="media-nav media-next" onclick="changeMedia(1)">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+        <div class="media-indicators">
+          ${project.media.map((_, index) => `
+            <span class="indicator ${index === 0 ? 'active' : ''}" onclick="goToMedia(${index})"></span>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    contentHTML += `</div>`;
+  }
+  // Fallback to single image if project has image property (for backward compatibility)
+  else if (project.image) {
     contentHTML += `
       <div class="panel-image">
         <img src="${project.image}" alt="${project.title}">
       </div>
     `;
   }
-
-  // Add video if exists
-  if (project.video) {
+  // Fallback to single video if project has video property (for backward compatibility)
+  else if (project.video) {
     contentHTML += `
       <div class="panel-video">
         <iframe src="${project.video}" allowfullscreen></iframe>
@@ -278,3 +346,56 @@ document.addEventListener('keydown', function(e) {
     closeProjectPanel();
   }
 });
+
+// ===== Media Carousel Navigation =====
+let currentMediaIndex = 0;
+
+function changeMedia(direction) {
+  const mediaItems = document.querySelectorAll('.media-item');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  if (mediaItems.length === 0) return;
+  
+  // Remove active class from current item
+  mediaItems[currentMediaIndex].classList.remove('active');
+  indicators[currentMediaIndex].classList.remove('active');
+  
+  // Calculate new index
+  currentMediaIndex += direction;
+  
+  // Wrap around
+  if (currentMediaIndex >= mediaItems.length) {
+    currentMediaIndex = 0;
+  } else if (currentMediaIndex < 0) {
+    currentMediaIndex = mediaItems.length - 1;
+  }
+  
+  // Add active class to new item
+  mediaItems[currentMediaIndex].classList.add('active');
+  indicators[currentMediaIndex].classList.add('active');
+}
+
+function goToMedia(index) {
+  const mediaItems = document.querySelectorAll('.media-item');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  if (mediaItems.length === 0) return;
+  
+  // Remove active class from current item
+  mediaItems[currentMediaIndex].classList.remove('active');
+  indicators[currentMediaIndex].classList.remove('active');
+  
+  // Set new index
+  currentMediaIndex = index;
+  
+  // Add active class to new item
+  mediaItems[currentMediaIndex].classList.add('active');
+  indicators[currentMediaIndex].classList.add('active');
+}
+
+// Reset media index when opening a new panel
+const originalOpenFunction = openProjectPanel;
+openProjectPanel = function(projectId) {
+  currentMediaIndex = 0;
+  originalOpenFunction(projectId);
+};
