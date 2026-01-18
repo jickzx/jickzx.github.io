@@ -118,7 +118,7 @@
         </article>
 
         <!-- Gamejam -->
-        <article class="project-card">
+        <article class="project-card" data-project="gamejam">
           <div class="project-image">
             <img src="https://media.licdn.com/dms/image/v2/D4E22AQH4FijlyatVsw/feedshare-shrink_2048_1536/B4EZt185lxJ0Aw-/0/1767210458941?e=1770249600&v=beta&t=j-sFgnYAcnEQU2HPSHD_qDFBzYvEVZspisu6lnq8LiQ" alt="Project Screenshot">
           </div>
@@ -135,7 +135,7 @@
         </article>
 
         <!-- HackNotts '25 -->
-        <article class="project-card">
+        <article class="project-card" data-project="hacknotts">
           <div class="project-image">P2 Cover</div>
           <div class="project-content">
             <div class="project-date">October 24, 2025</div>
@@ -150,7 +150,7 @@
         </article>
 
         <!-- A level CS CW -->
-        <article class="project-card">
+        <article class="project-card" data-project="university-checker">
           <div class="project-image">no photo yet...</div>
           <div class="project-content">
             <div class="project-date">June 10, 2023</div>
@@ -165,7 +165,7 @@
         </article>
 
         <!-- Chess -->
-        <article class="project-card">
+        <article class="project-card" data-project="chess">
           <div class="project-image">P4 Cover</div>
           <div class="project-content">
             <div class="project-date">July 5, 2025</div>
@@ -178,7 +178,7 @@
         </article>
 
         <!-- Year 12 HTML Project -->
-        <article class="project-card">
+        <article class="project-card" data-project="year12">
           <div class="project-image">
             <img src="images/yes.png" alt="Year 12 screenshot">
             </div>
@@ -388,6 +388,19 @@
       </div>
     </section>
   </main>
+
+  <!-- Project Detail Side Panel -->
+  <div id="project-overlay" class="project-overlay"></div>
+  <div id="project-panel" class="project-panel">
+    <button class="panel-close" id="panel-close">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+    <div class="panel-content" id="panel-content">
+      <!-- Content will be inserted dynamically -->
+    </div>
+  </div>
 
   <footer id="contact">
     <p class="copyright">© <span id="year"></span> James Espinosa</p>
