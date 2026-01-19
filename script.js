@@ -101,7 +101,7 @@ const projectData = {
     media: [
       {
         type: "image",
-        src: "images/hacknotts.png"
+        src: "images/hacknotts25.png"
       },
       {
         type: "video",
