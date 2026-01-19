@@ -112,6 +112,20 @@ const projectData = {
   "university-checker": {
     title: "University Probability Checker",
     date: "June 10, 2023",
+    media: [
+      {
+        type: "image",
+        src: "images/UniversityChecker.png"
+      },
+      {
+        type: "image",
+        src: "images/UniversityChecker2.png"
+      },
+      {
+        type: "video",
+        src: "https://www.youtube.com/watch?v=j95X8x0Itbs"
+      }
+    ],
     description: "My A-Level Computer Science coursework project that helps students assess their university admission chances.",
     fullDescription: `This was my major project for A-Level Computer Science, where I achieved 53/70 marks. The application analyzes student data and provides probability estimates for university admissions based on historical data.
     
