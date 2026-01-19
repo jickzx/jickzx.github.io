@@ -87,6 +87,10 @@ const projectData = {
     date: "October 24, 2025",
     media: [
       {
+        type: "image",
+        src: "images/HackNotts.png"
+      },
+      {
         type: "video",
         src: "https://www.youtube.com/embed/_9KZp1zetrI"
       }
