@@ -1,5 +1,4 @@
-my portfolio website but i need to add more stuff!
-Any feedback would be helpful - this may help me for future purposes!
+Any feedback on this website will be very useful, as this is an unfinished project and may still be unfinished until everything looks polished, readable and has some animations.
 
 This website portfolio was made as a fun project for me, to understand HTML, CSS and JavaScript.
 
