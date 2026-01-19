@@ -77,7 +77,7 @@ const projectData = {
       "Engaging gameplay loop",
       "Score tracking and leaderboards",
       "Team collaboration across disciplines",
-      "Completed within 48-hour time limit"
+      "Completed within 8-hour time limit"
     ],
     technologies: ["Unity", "C#", "Github"],
     github: "#"
