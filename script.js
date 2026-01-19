@@ -115,11 +115,11 @@ const projectData = {
     media: [
       {
         type: "image",
-        src: "images/UniversityChecker.png"
+        src: "images/unichecker.png"
       },
       {
         type: "image",
-        src: "images/UniversityChecker2.png"
+        src: "images/unichecker2.png"
       },
       {
         type: "video",
