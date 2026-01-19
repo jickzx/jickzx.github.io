@@ -88,7 +88,7 @@ const projectData = {
     media: [
       {
         type: "image",
-        src: "images/HackNotts.png"
+        src: "images/hacknotts.png"
       },
       {
         type: "video",
@@ -119,7 +119,7 @@ const projectData = {
       },
       {
         type: "image",
-        src: "images/unichecker2.png"
+        src: "images/Unichecker2.png"
       },
       {
         type: "video",
