@@ -37,8 +37,7 @@ const projectData = {
   qrcode: {
     title: "Personal Portfolio Website",
     date: "November 8, 2025",
-    image: "",
-    description: "This is still under construction...",
+    image: "images/chris.png",
     fullDescription: `This is still under construction... Bear with me.
     
     `,
