@@ -34,6 +34,19 @@ document.querySelectorAll('.project-card, .about-content').forEach(el => {
 
 // ===== Project Side Panel Functionality =====
 const projectData = {
+  qrcode: {
+    title: "Personal Portfolio Website",
+    date: "November 8, 2025",
+    image: "",
+    description: "This is still under construction...",
+    fullDescription: `This is still under construction... Bear with me.
+    
+    `,
+    features: [
+    ],
+    technologies: ["Python"],
+    github: "#",
+  },
   portfolio: {
     title: "Personal Portfolio Website",
     date: "November 8, 2025",
@@ -67,8 +80,8 @@ const projectData = {
         src: "https://www.youtube.com/embed/Hrmt9tdTrS4"
       }
     ],
-    description: "An exciting snowball stacking game created during the University of Nottingham Computer Science Society GameJam.",
-    fullDescription: `During the intense 48-hour GameJam event, our team created a physics-based snowball stacking game that challenges players with progressively harder levels.
+    description: "An exciting snowball stacking game created during UoN's Winter GameJam for 2025.",
+    fullDescription: `During the intense 8-hour GameJam event, our team created a physics-based snowball stacking game that challenges players with progressively harder levels.
     
     The game features realistic physics simulation, increasingly difficult challenges, and engaging gameplay mechanics that keep players coming back for more. This was an incredible learning experience in game development and team collaboration under pressure.`,
     features: [
