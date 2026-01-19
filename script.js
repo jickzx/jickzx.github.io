@@ -429,3 +429,20 @@ openProjectPanel = function(projectId) {
   currentMediaIndex = 0;
   originalOpenFunction(projectId);
 };
+// Discord copy functionality
+const discordLink = document.getElementById('discord-link');
+discordLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  const username = this.getAttribute('data-username');
+  
+  navigator.clipboard.writeText(username).then(() => {
+    const tooltip = this.querySelector('.copy-tooltip');
+    tooltip.classList.add('show');
+    
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy:', err);
+  });
+});

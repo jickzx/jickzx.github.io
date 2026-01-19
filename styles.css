@@ -235,11 +235,11 @@ nav a:hover {
 
 /* Social Links in Hero Section */
 .social-links {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 3rem auto 0;
 }
 
 .social-links a {
@@ -255,7 +255,8 @@ nav a:hover {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 100px;
+  cursor: pointer;
+  position: relative;
 }
 
 .social-links a:hover {
@@ -279,8 +280,25 @@ nav a:hover {
   fill: currentColor;
 }
 
-.social-label {
-  font-weight: 500;
+.copy-tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.copy-tooltip.show {
+  opacity: 1;
 }
 
 .disclaimer {
@@ -922,9 +940,9 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .social-links a {
-    min-width: 80px;
-    padding: 0.8rem;
+  .social-links {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 400px;
   }
   
   .social-icon {
