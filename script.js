@@ -429,6 +429,28 @@ openProjectPanel = function(projectId) {
   currentMediaIndex = 0;
   originalOpenFunction(projectId);
 };
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const sideNav = document.getElementById('side-nav');
+const navOverlay = document.getElementById('nav-overlay');
+
+function toggleMenu() {
+  hamburger.classList.toggle('active');
+  sideNav.classList.toggle('active');
+  navOverlay.classList.toggle('active');
+  document.body.style.overflow = sideNav.classList.contains('active') ? 'hidden' : '';
+}
+
+hamburger.addEventListener('click', toggleMenu);
+navOverlay.addEventListener('click', toggleMenu);
+
+// Close menu when clicking any link
+document.querySelectorAll('.side-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggleMenu();
+  });
+});
+
 // Discord copy functionality
 const discordLink = document.getElementById('discord-link');
 discordLink.addEventListener('click', function(e) {

@@ -19,14 +19,41 @@
   
   <header>
     <div class="logo">James Espinosa</div>
-    <nav>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="old_web/old.html">Old Portfolio</a></li>
-      </ul>
-    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
+
+  <div class="nav-overlay" id="nav-overlay"></div>
+<nav class="side-nav" id="side-nav">
+  <ul class="nav-menu">
+    <li class="nav-item">
+      <a href="#projects" class="nav-link">Projects</a>
+      <ul class="nav-submenu">
+        <li><a href="#qrcode">QR Code Generator</a></li>
+        <li><a href="#portfolio">Personal Portfolio</a></li>
+        <li><a href="#gamejam">UoN CompSoc '25 GameJam</a></li>
+        <li><a href="#hacknotts">HackNotts '25 Raspberry Pi</a></li>
+        <li><a href="#university-checker">University Probability Checker</a></li>
+        <li><a href="#chess">Unfinished Chess Game</a></li>
+        <li><a href="#year12">Year 12 HTML Project</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="#about" class="nav-link">About</a>
+      <ul class="nav-submenu">
+        <li><a href="#languages">Languages & Apps</a></li>
+        <li><a href="#books">Books I've Read</a></li>
+        <li><a href="#hobbies">Hobbies & Interests</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="old_web/old.html" class="nav-link">Old Portfolio</a>
+    </li>
+  </ul>
+</nav>
 
   <main>
     <!-- Hero Section -->
@@ -129,7 +156,7 @@
       <div class="projects-grid">
 
          <!--QR CODE-->
-        <article class="project-card" data-project="qrcode">
+        <article class="project-card" id="qrcode" data-project="qrcode">
           <div class="project-image">
             <img src="images/chris.png" alt="christafa">
             </div>
@@ -143,7 +170,7 @@
           </div>
         </article>
         <!-- Personal Portfolio-->
-        <article class="project-card" data-project="portfolio">
+        <article class="project-card" id="portfolio" data-project="portfolio">
           <div class="project-image">
             <img src="images/PortfolioWebsite.png" alt="Project Screenshot">
           </div>
@@ -160,7 +187,7 @@
         </article>
 
         <!-- Gamejam -->
-        <article class="project-card" data-project="gamejam">
+        <article class="project-card" id="gamejam" data-project="gamejam">
           <div class="project-image">
             <img src="https://media.licdn.com/dms/image/v2/D4E22AQH4FijlyatVsw/feedshare-shrink_2048_1536/B4EZt185lxJ0Aw-/0/1767210458941?e=1770249600&v=beta&t=j-sFgnYAcnEQU2HPSHD_qDFBzYvEVZspisu6lnq8LiQ" alt="Project Screenshot">
           </div>
@@ -177,7 +204,7 @@
         </article>
 
         <!-- HackNotts '25 -->
-        <article class="project-card" data-project="hacknotts">
+        <article class="project-card" id="hacknotts" data-project="hacknotts">
           <div class="project-image">
             <img src="images/hacknotts25.png" alt="Project Screenshot">
           </div>
@@ -193,8 +220,21 @@
           </div>
         </article>
 
+        <!-- Chess -->
+        <article class="project-card" id="chess" data-project="chess">
+          <div class="project-image">unfinished...</div>
+          <div class="project-content">
+            <div class="project-date">July 5, 2025</div>
+            <h3 class="project-title">Unfinished Chess Game</h3>
+            <p class="project-description">A work-in-progress chess game built in Java. I am planning to add AI opponents and multiplayer functionality.</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+            </div>
+          </div>
+        </article>
+
         <!-- A level CS CW -->
-        <article class="project-card" data-project="university-checker">
+        <article class="project-card" id="university-checker" data-project="university-checker">
           <div class="project-image">
             <img src="images/unichecker.png" alt="Project Screenshot">
           </div>
@@ -210,21 +250,8 @@
           </div>
         </article>
 
-        <!-- Chess -->
-        <article class="project-card" data-project="chess">
-          <div class="project-image">unfinished...</div>
-          <div class="project-content">
-            <div class="project-date">July 5, 2025</div>
-            <h3 class="project-title">Unfinished Chess Game</h3>
-            <p class="project-description">A work-in-progress chess game built in Java. I am planning to add AI opponents and multiplayer functionality.</p>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-            </div>
-          </div>
-        </article>
-
         <!-- Year 12 HTML Project -->
-        <article class="project-card" data-project="year12">
+        <article class="project-card" id="year12" data-project="year12">
           <div class="project-image">
             <img src="images/yes.png" alt="Year 12 screenshot">
             </div>
@@ -261,6 +288,7 @@
 
       <!-- Coding Languages Subsection -->
       <div class="about-subsection">
+        <div id="languages">
         <h3 class="subsection-title">Languages & Apps</h3>
         <div class="logo-scroll-container">
           <div class="logo-scroll-track">
@@ -348,10 +376,12 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       <!-- Books Subsection -->
       <div class="about-subsection">
+        <div id ="books">
         <h3 class="subsection-title">Books I've Read</h3>
         <div class="about-grid">
           <div class="about-item">
@@ -377,6 +407,7 @@
             <div class="item-icon">📕</div>
             <h4>Atomic Habits</h4>
             <p>James Clear's book taught me about minimal changes, and how there is a "Goldilocks zone" to reach the flow state. Would be nice to constantly hit it so I stop procrastinating</p>
+          </div>
           </div>
         </div>
       </div>
@@ -411,6 +442,7 @@
 
       <!-- Hobbies Subsection -->
       <div class="about-subsection">
+        <div id="hobbies">
         <h3 class="subsection-title">Hobbies & Interests</h3>
         <div class="about-grid">
           <div class="about-item">
@@ -432,6 +464,7 @@
             <div class="item-icon">🎬</div>
             <h4>Content Creation</h4>
             <p>I make silly videos on TikTok</p>
+          </div>
           </div>
         </div>
       </div>
