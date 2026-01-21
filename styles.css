@@ -716,12 +716,16 @@ section {
   margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .panel-content .panel-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Change from 'cover' to 'contain' */
+  background: #1a1a1a; /* Optional: dark background */
 }
 
 .panel-content .panel-video {
