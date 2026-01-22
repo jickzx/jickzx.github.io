@@ -1087,17 +1087,19 @@ footer {
     width: 100%;
     max-width: 100%;
   }
-  /* ===== Profile Card - Bottom Left ===== */
+  
+/* ===== Profile Card - Bottom Left Corner of Hero ===== */
+/* ===== Profile Card - Bottom Left Corner of Hero ===== */
 .profile-card {
-  position: fixed;
-  bottom: 2rem;
+  position: absolute;
+  bottom: 8rem;  /* Moved up significantly */
   left: 2rem;
-  width: 320px;
+  width: 250px;  /* Made narrower */
   background: rgba(15, 15, 15, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 1.5rem;
-  z-index: 50;
+  padding: 1.25rem;  /* Reduced padding */
+  z-index: 10;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   
@@ -1113,12 +1115,12 @@ footer {
 }
 
 .profile-image-container {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 1rem;
+  width: 60px;  /* Much smaller */
+  height: 60px;  /* Much smaller */
+  margin: 0 auto 0.75rem;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);  /* Thinner border */
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -1129,47 +1131,58 @@ footer {
 }
 
 .profile-text h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   color: var(--white);
   letter-spacing: -0.01em;
 }
 
 .profile-text p {
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.75rem;  /* Smaller text */
+  line-height: 1.5;
   color: var(--gray);
   text-align: center;
 }
 
-/* Responsive - Hide on smaller screens */
-@media (max-width: 768px) {
-  .profile-card {
-    display: none;
-  }
+/* Ensure hero section has relative positioning */
+.hero {
+  position: relative;
 }
 
+/* Make sure social links don't overlap */
+.social-links {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive - Adjust for smaller screens */
 @media (max-width: 1024px) {
   .profile-card {
-    width: 280px;
-    bottom: 1rem;
-    left: 1rem;
-    padding: 1.25rem;
+    width: 220px;
+    bottom: 6rem;
+    left: 1.5rem;
+    padding: 1rem;
   }
   
   .profile-image-container {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
   }
   
   .profile-text h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
   
   .profile-text p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    display: none;
   }
 }
 }
