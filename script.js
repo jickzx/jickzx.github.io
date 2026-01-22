@@ -471,4 +471,13 @@ discordLink.addEventListener('click', function(e) {
   }).catch(err => {
     console.error('Failed to copy:', err);
   });
+  // ===== Profile Card Animation on Load =====
+window.addEventListener('load', function() {
+  const profileCard = document.getElementById('profile-card');
+  
+  // Trigger animation after a short delay for better effect
+  setTimeout(() => {
+    profileCard.classList.add('slide-up');
+  }, 500); // 500ms delay after page load
+});
 });
