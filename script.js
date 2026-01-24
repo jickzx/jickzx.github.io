@@ -37,12 +37,24 @@ const projectData = {
   stockpredictor: {
     title: "Stock Price Predictor",
     date: "January 24 2026",
-    image: "images/stockpredictor1.png",
-    image: "images/stockpredictor2.png",
-    image: "images/stockpredictor3.png",
+    media: [
+      {
+        type: "image",
+        src: "images/stockpredictor1.png"
+      },
+      {
+        type: "image",
+        src: "images/stockpredictor2.png"
+      },
+      {
+        type: "image",
+        src: "images/stockpredictor3.png"
+      }
+    ],
     fullDescription: `This stock price predictor simply predicts either: the next day, the next 5 working days, or the next 21 working days.
     I do not wish to waste more time onto this project as it was just made for fun to "somehow understand" how to use ML models.
     Honestly, this was a waste of time, even though I had help with AI.`,
+    technologies: ["Python"] 
   },
 
   qrcode: {
