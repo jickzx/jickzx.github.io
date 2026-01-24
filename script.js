@@ -34,13 +34,24 @@ document.querySelectorAll('.project-card, .about-content').forEach(el => {
 
 // ===== Project Side Panel Functionality =====
 const projectData = {
+  stockpredictor: {
+    title: "Stock Price Predictor",
+    date: "January 24 2026",
+    image: "images/stockpredictor1.png",
+    image: "images/stockpredictor2.png",
+    image: "images/stockpredictor3.png",
+    fullDescription: `This stock price predictor simply predicts either: the next day, the next 5 working days, or the next 21 working days.
+    I do not wish to waste more time onto this project as it was just made for fun to "somehow understand" how to use ML models.
+    Honestly, this was a waste of time, even though I had help with AI.`,
+  },
+
   qrcode: {
     title: "Personal Portfolio Website",
     date: "November 8, 2025",
     image: "images/chris.png",
-    fullDescription: `This is still under construction... Bear with me.
-    
-    `,
+    fullDescription: `This is just a simple QR code generator without a UI. This just uses the terminal to produce QR codes from links that you have to manually change.
+    I have no intention of making a UI to this project as it was made to advertise my portfolio website, and maybe include some images of my friends for fun.`
+    ,
     features: [
     ],
     technologies: ["Python"],
