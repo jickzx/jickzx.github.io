@@ -74,9 +74,9 @@ const projectData = {
     date: "November 8, 2025",
     image: "images/PortfolioWebsite.png",
     description: "A modern, responsive portfolio website built from scratch to showcase my projects and skills.",
-    fullDescription: `This portfolio website represents my journey in web development. Built with pure HTML, CSS, and JavaScript, it features a modern design with smooth animations, a responsive layout, and an engaging user experience.
+    fullDescription: `This portfolio website represents my journey in web development. Built with HTML, CSS, and JavaScript, it features a modern design with smooth animations, a responsive layout, and an engaging user experience.
     
-    The site includes animated backgrounds, a project showcase grid, an interactive about section with my skills and interests, and now this dynamic side panel for detailed project views!`,
+    This site includes animated backgrounds, a project showcase grid, an interactive about section with my skills and interests, and a dynamic side panel for detailed project views!`,
     features: [
       "Fully responsive design that works on all devices",
       "Smooth scroll animations and transitions",
@@ -105,7 +105,7 @@ const projectData = {
     description: "An exciting snowball stacking game created during UoN's Winter GameJam for 2025.",
     fullDescription: `During the intense 8-hour GameJam event, our team created a physics-based snowball stacking game that challenges players with progressively harder levels.
     
-    The game features realistic physics simulation, increasingly difficult challenges, and engaging gameplay mechanics that keep players coming back for more. This was an incredible learning experience in game development and team collaboration under pressure.`,
+    This snowball game forces you to stack to a certain point before moving onto the next round. Each round will get harder, with new challenges like a "blue ball". yes, we called them blue balls LOL. This was an incredible learning experience in game development and team collaboration under pressure.`,
     features: [
       "Physics-based snowball mechanics",
       "Progressive difficulty system",
