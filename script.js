@@ -34,6 +34,29 @@ document.querySelectorAll('.project-card, .about-content').forEach(el => {
 
 // ===== Project Side Panel Functionality =====
 const projectData = {
+
+  qrDecoder: {
+    title: "QR Code Decoder",
+    date: "January 28, 2026",
+    media: [
+      {
+      type: "image",
+      src: "images/qrdecoder1.png",
+      },
+      {
+        type: "image",
+        src: "images/qrdecoder2.png",
+      },
+      {
+        type: "image",
+        src: "images/qrdecoder3.png",
+      },
+
+    ],
+  },
+
+// uclhackathon:
+
   stockpredictor: {
     title: "Stock Price Predictor",
     date: "January 24 2026",
