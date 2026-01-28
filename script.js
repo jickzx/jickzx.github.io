@@ -38,7 +38,6 @@ const projectData = {
   qrDecoder: {
     title: "QR Code Decoder",
     date: "January 28, 2026",
-    popularity: 0,
     media: [
       {
       type: "image",
@@ -52,8 +51,8 @@ const projectData = {
         type: "image",
         src: "images/qrdecoder3.png",
       },
-
     ],
+    technologies: ["Python"],
   },
 
 // uclhackathon:
@@ -61,7 +60,6 @@ const projectData = {
   stockpredictor: {
     title: "Stock Price Predictor",
     date: "January 24 2026",
-    popularity: 1,
     media: [
       {
         type: "image",
@@ -85,7 +83,6 @@ const projectData = {
   qrcode: {
     title: "QR Code Generator",
     date: "November 8, 2025",
-    popularity: 5,
     image: "images/chris.png",
     fullDescription: `This is just a simple QR code generator without a UI. This just uses the terminal to produce QR codes from links that you have to manually change.
     I have no intention of making a UI to this project as it was made to advertise my portfolio website, and maybe include some images of my friends for fun.`
@@ -98,7 +95,6 @@ const projectData = {
   portfolio: {
     title: "Personal Portfolio Website",
     date: "November 8, 2025",
-    popularity: 2,
     image: "images/PortfolioWebsite.png",
     description: "A modern, responsive portfolio website built from scratch to showcase my projects and skills.",
     fullDescription: `This portfolio website represents my journey in web development. Built with HTML, CSS, and JavaScript, it features a modern design with smooth animations, a responsive layout, and an engaging user experience.
@@ -119,7 +115,6 @@ const projectData = {
   gamejam: {
     title: "UoN CompSoc '25 GameJam",
     date: "December 08, 2025",
-    popularity: 3,
     media: [
       {
         type: "image",
@@ -148,7 +143,6 @@ const projectData = {
   hacknotts: {
     title: "HackNotts '25 Raspberry Pi Chatbot",
     date: "October 24, 2025",
-    popularity: 4,
     media: [
       {
         type: "image",
@@ -180,7 +174,6 @@ const projectData = {
   "university-checker": {
     title: "University Probability Checker",
     date: "June 10, 2023",
-    popularity: 6,
     media: [
       {
         type: "image",
@@ -212,7 +205,6 @@ const projectData = {
   chess: {
     title: "Chess Game in Java",
     date: "July 5, 2025",
-    popularity: 8,
     description: "A work-in-progress chess game with plans for AI opponents and multiplayer functionality.",
     fullDescription: `This ongoing project is my exploration into game logic and artificial intelligence. I'm building a fully functional chess game in Java that will eventually feature AI opponents with multiple difficulty levels and online multiplayer capabilities.
     
@@ -230,7 +222,6 @@ const projectData = {
   year12: {
     title: "Year 12 HTML Project",
     date: "December 05, 2023",
-    popularity: 7,
     image: "images/yes.png",
     description: "One of my first web development projects from Year 12, introducing me to HTML, CSS, and JavaScript.",
     fullDescription: `This was a foundational project assigned by my teacher that introduced me to web development. While simple compared to my current work, it was instrumental in sparking my interest in creating interactive web experiences.
@@ -544,58 +535,60 @@ window.addEventListener('load', function() {
 const projectSortDropdown = document.getElementById('project-sort');
 const projectsGrid = document.querySelector('.projects-grid');
 
-// Parse date string to Date object for comparison
-function parseProjectDate(dateString) {
-  // Handle various date formats like "January 28, 2026", "January 24 2026", "June 10, 2023"
-  const cleanDate = dateString.replace(',', '');
-  const parts = cleanDate.split(' ');
-  
-  const months = {
-    'January': 0, 'February': 1, 'March': 2, 'April': 3,
-    'May': 4, 'June': 5, 'July': 6, 'August': 7,
-    'September': 8, 'October': 9, 'November': 10, 'December': 11
-  };
-  
-  const month = months[parts[0]] || 0;
-  const day = parseInt(parts[1]) || 1;
-  const year = parseInt(parts[2]) || 2024;
-  
-  return new Date(year, month, day);
-}
+// Popularity order array
+// To add a new most popular project, add it to the start of the array
+const popularityOrder = [
+  'hacknotts',
+  'gamejam',
+  'university-checker',
+  'stockpredictor',
+  'portfolio',
+  'qrDecoder',
+  'qrcode',
+  'year12',
+  'chess'
+];
+
+// Store original DOM order on page load
+const originalOrder = [];
 
 // Sort projects based on selected option
 function sortProjects(sortType) {
   const projectCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
   
-  projectCards.sort((a, b) => {
-    const projectIdA = a.getAttribute('data-project');
-    const projectIdB = b.getAttribute('data-project');
-    const projectA = projectData[projectIdA];
-    const projectB = projectData[projectIdB];
-    
-    switch (sortType) {
-      case 'recent':
-        // Most recent first (descending date)
-        const dateA = projectA ? parseProjectDate(projectA.date) : new Date(0);
-        const dateB = projectB ? parseProjectDate(projectB.date) : new Date(0);
-        return dateB - dateA;
-        
-      case 'oldest':
-        // Least recent first (ascending date)
-        const dateA2 = projectA ? parseProjectDate(projectA.date) : new Date(0);
-        const dateB2 = projectB ? parseProjectDate(projectB.date) : new Date(0);
-        return dateA2 - dateB2;
-        
-      case 'popular':
-        // Most popular first (ascending popularity ID - lower number = more popular)
-        const popA = projectA && typeof projectA.popularity === 'number' ? projectA.popularity : 999;
-        const popB = projectB && typeof projectB.popularity === 'number' ? projectB.popularity : 999;
-        return popA - popB;
-        
-      default:
-        return 0;
-    }
-  });
+  // Capture original order on first sort (if not already captured)
+  if (originalOrder.length === 0) {
+    projectCards.forEach(card => originalOrder.push(card));
+  }
+  
+  let sortedCards;
+  
+  switch (sortType) {
+    case 'recent':
+      // Most recent = original HTML order (as written in index.html)
+      sortedCards = [...originalOrder];
+      break;
+      
+    case 'oldest':
+      // Least recent = reverse of original HTML order
+      sortedCards = [...originalOrder].reverse();
+      break;
+      
+    case 'popular':
+      // Most popular first (use index in popularityOrder array)
+      sortedCards = [...projectCards].sort((a, b) => {
+        const projectIdA = a.getAttribute('data-project');
+        const projectIdB = b.getAttribute('data-project');
+        const popA = popularityOrder.indexOf(projectIdA);
+        const popB = popularityOrder.indexOf(projectIdB);
+        // If not in array, put at end
+        return (popA === -1 ? 999 : popA) - (popB === -1 ? 999 : popB);
+      });
+      break;
+      
+    default:
+      sortedCards = projectCards;
+  }
   
   // Animate cards out, reorder, then animate back in
   projectCards.forEach((card, index) => {
@@ -605,12 +598,12 @@ function sortProjects(sortType) {
   
   setTimeout(() => {
     // Reorder cards in DOM
-    projectCards.forEach(card => {
+    sortedCards.forEach(card => {
       projectsGrid.appendChild(card);
     });
     
     // Animate cards back in with stagger
-    projectCards.forEach((card, index) => {
+    sortedCards.forEach((card, index) => {
       setTimeout(() => {
         card.style.opacity = '1';
         card.style.transform = 'translateY(0)';
