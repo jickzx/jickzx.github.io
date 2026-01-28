@@ -38,6 +38,7 @@ const projectData = {
   qrDecoder: {
     title: "QR Code Decoder",
     date: "January 28, 2026",
+    popularity: 0,
     media: [
       {
       type: "image",
@@ -60,6 +61,7 @@ const projectData = {
   stockpredictor: {
     title: "Stock Price Predictor",
     date: "January 24 2026",
+    popularity: 1,
     media: [
       {
         type: "image",
@@ -81,8 +83,9 @@ const projectData = {
   },
 
   qrcode: {
-    title: "Personal Portfolio Website",
+    title: "QR Code Generator",
     date: "November 8, 2025",
+    popularity: 5,
     image: "images/chris.png",
     fullDescription: `This is just a simple QR code generator without a UI. This just uses the terminal to produce QR codes from links that you have to manually change.
     I have no intention of making a UI to this project as it was made to advertise my portfolio website, and maybe include some images of my friends for fun.`
@@ -95,6 +98,7 @@ const projectData = {
   portfolio: {
     title: "Personal Portfolio Website",
     date: "November 8, 2025",
+    popularity: 2,
     image: "images/PortfolioWebsite.png",
     description: "A modern, responsive portfolio website built from scratch to showcase my projects and skills.",
     fullDescription: `This portfolio website represents my journey in web development. Built with HTML, CSS, and JavaScript, it features a modern design with smooth animations, a responsive layout, and an engaging user experience.
@@ -115,6 +119,7 @@ const projectData = {
   gamejam: {
     title: "UoN CompSoc '25 GameJam",
     date: "December 08, 2025",
+    popularity: 3,
     media: [
       {
         type: "image",
@@ -143,6 +148,7 @@ const projectData = {
   hacknotts: {
     title: "HackNotts '25 Raspberry Pi Chatbot",
     date: "October 24, 2025",
+    popularity: 4,
     media: [
       {
         type: "image",
@@ -174,6 +180,7 @@ const projectData = {
   "university-checker": {
     title: "University Probability Checker",
     date: "June 10, 2023",
+    popularity: 6,
     media: [
       {
         type: "image",
@@ -205,6 +212,7 @@ const projectData = {
   chess: {
     title: "Chess Game in Java",
     date: "July 5, 2025",
+    popularity: 8,
     description: "A work-in-progress chess game with plans for AI opponents and multiplayer functionality.",
     fullDescription: `This ongoing project is my exploration into game logic and artificial intelligence. I'm building a fully functional chess game in Java that will eventually feature AI opponents with multiple difficulty levels and online multiplayer capabilities.
     
@@ -222,6 +230,7 @@ const projectData = {
   year12: {
     title: "Year 12 HTML Project",
     date: "December 05, 2023",
+    popularity: 7,
     image: "images/yes.png",
     description: "One of my first web development projects from Year 12, introducing me to HTML, CSS, and JavaScript.",
     fullDescription: `This was a foundational project assigned by my teacher that introduced me to web development. While simple compared to my current work, it was instrumental in sparking my interest in creating interactive web experiences.
@@ -517,13 +526,108 @@ discordLink.addEventListener('click', function(e) {
   }).catch(err => {
     console.error('Failed to copy:', err);
   });
-  // ===== Profile Card Animation on Load =====
+});
+
+// ===== Profile Card Animation on Load =====
 window.addEventListener('load', function() {
   const profileCard = document.getElementById('profile-card');
   
   // Trigger animation after a short delay for better effect
-  setTimeout(() => {
-    profileCard.classList.add('slide-up');
-  }, 500); // 500ms delay after page load
+  if (profileCard) {
+    setTimeout(() => {
+      profileCard.classList.add('slide-up');
+    }, 500); // 500ms delay after page load
+  }
 });
+
+// ===== Project Sorting Functionality =====
+const projectSortDropdown = document.getElementById('project-sort');
+const projectsGrid = document.querySelector('.projects-grid');
+
+// Parse date string to Date object for comparison
+function parseProjectDate(dateString) {
+  // Handle various date formats like "January 28, 2026", "January 24 2026", "June 10, 2023"
+  const cleanDate = dateString.replace(',', '');
+  const parts = cleanDate.split(' ');
+  
+  const months = {
+    'January': 0, 'February': 1, 'March': 2, 'April': 3,
+    'May': 4, 'June': 5, 'July': 6, 'August': 7,
+    'September': 8, 'October': 9, 'November': 10, 'December': 11
+  };
+  
+  const month = months[parts[0]] || 0;
+  const day = parseInt(parts[1]) || 1;
+  const year = parseInt(parts[2]) || 2024;
+  
+  return new Date(year, month, day);
+}
+
+// Sort projects based on selected option
+function sortProjects(sortType) {
+  const projectCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
+  
+  projectCards.sort((a, b) => {
+    const projectIdA = a.getAttribute('data-project');
+    const projectIdB = b.getAttribute('data-project');
+    const projectA = projectData[projectIdA];
+    const projectB = projectData[projectIdB];
+    
+    switch (sortType) {
+      case 'recent':
+        // Most recent first (descending date)
+        const dateA = projectA ? parseProjectDate(projectA.date) : new Date(0);
+        const dateB = projectB ? parseProjectDate(projectB.date) : new Date(0);
+        return dateB - dateA;
+        
+      case 'oldest':
+        // Least recent first (ascending date)
+        const dateA2 = projectA ? parseProjectDate(projectA.date) : new Date(0);
+        const dateB2 = projectB ? parseProjectDate(projectB.date) : new Date(0);
+        return dateA2 - dateB2;
+        
+      case 'popular':
+        // Most popular first (ascending popularity ID - lower number = more popular)
+        const popA = projectA && typeof projectA.popularity === 'number' ? projectA.popularity : 999;
+        const popB = projectB && typeof projectB.popularity === 'number' ? projectB.popularity : 999;
+        return popA - popB;
+        
+      default:
+        return 0;
+    }
+  });
+  
+  // Animate cards out, reorder, then animate back in
+  projectCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+  });
+  
+  setTimeout(() => {
+    // Reorder cards in DOM
+    projectCards.forEach(card => {
+      projectsGrid.appendChild(card);
+    });
+    
+    // Animate cards back in with stagger
+    projectCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 50);
+    });
+  }, 200);
+}
+
+// Add event listener for dropdown change
+projectSortDropdown.addEventListener('change', function() {
+  sortProjects(this.value);
+});
+
+// Initial sort on page load (Most Recent by default)
+document.addEventListener('DOMContentLoaded', function() {
+  // Add transition for smooth sorting animation
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.style.transition = 'opacity 0.2s ease, transform 0.3s ease';
+  });
 });
