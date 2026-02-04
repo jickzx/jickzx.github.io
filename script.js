@@ -1,5 +1,4 @@
-// ===== Set Current Year =====
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear(); // get year
 
 // ===== Smooth Scroll for Internal Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -612,14 +611,13 @@ function sortProjects(sortType) {
   }, 200);
 }
 
-// Add event listener for dropdown change
+// dropdown change
 projectSortDropdown.addEventListener('change', function() {
   sortProjects(this.value);
 });
 
 // Initial sort on page load (Most Recent by default)
 document.addEventListener('DOMContentLoaded', function() {
-  // Add transition for smooth sorting animation
   document.querySelectorAll('.project-card').forEach(card => {
     card.style.transition = 'opacity 0.2s ease, transform 0.3s ease';
   });
