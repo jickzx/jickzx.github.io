@@ -1,8 +1,11 @@
+// Domain-restricted public token (only works on jickzx.github.io)
+const PUBLIC_ION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxMTk1NDQ3YS04YjFhLTRjZDEtYTI0Yy1kNzhkMWY3NzhkMGIiLCJpZCI6MzkzNTIyLCJpYXQiOjE3NzE4OTk1MzJ9.yPstixQ_9ZMdgu-QvtO5zIJ9S_olgXCq8_yqj2gRc6c";
+
 const urlParams = new URLSearchParams(window.location.search);
 const urlToken  = urlParams.get("ionToken");
 const storedToken = localStorage.getItem("cesiumIonToken");
 const fileToken = window.CESIUM_ION_TOKEN;
-const ionToken  = urlToken || storedToken || fileToken;
+const ionToken  = urlToken || storedToken || fileToken || PUBLIC_ION_TOKEN;
 
 if (urlToken) localStorage.setItem("cesiumIonToken", urlToken);
 if (ionToken)  Cesium.Ion.defaultAccessToken = ionToken;
@@ -24,6 +27,15 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
   infoBox: false,
   selectionIndicator: false,
 });
+
+if (!ionToken) {
+  viewer.imageryLayers.removeAll();
+  viewer.imageryLayers.addImageryProvider(
+    new Cesium.OpenStreetMapImageryProvider({
+      url: "https://tile.openstreetmap.org/",
+    })
+  );
+}
 
 viewer.scene.globe.depthTestAgainstTerrain = false;
 
