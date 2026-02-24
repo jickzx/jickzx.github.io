@@ -15,7 +15,11 @@ if (ionToken)  Cesium.Ion.defaultAccessToken = ionToken;
 // ══════════════════════════════════════════════════════════════════
 const viewer = new Cesium.Viewer("cesiumContainer", {
   terrain: ionToken ? Cesium.Terrain.fromWorldTerrain() : undefined,
-  baseLayer: false,
+  baseLayer: new Cesium.ImageryLayer(
+    new Cesium.OpenStreetMapImageryProvider({
+      url: "https://tile.openstreetmap.org/",
+    })
+  ),
   timeline: true,
   animation: true,
   shouldAnimate: true,
@@ -28,13 +32,6 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
   infoBox: false,
   selectionIndicator: false,
 });
-
-// Use OpenStreetMap imagery (free, no Ion asset access needed)
-viewer.imageryLayers.addImageryProvider(
-  new Cesium.OpenStreetMapImageryProvider({
-    url: "https://tile.openstreetmap.org/",
-  })
-);
 
 viewer.scene.globe.depthTestAgainstTerrain = false;
 
