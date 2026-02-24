@@ -34,6 +34,30 @@ document.querySelectorAll('.project-card, .about-content').forEach(el => {
 // ===== Project Side Panel Functionality =====
 const projectData = {
 
+  hackldn: {
+    title: "GRID — East Midlands Digital Twin",
+    date: "January 28, 2026",
+    media: [
+      {
+        type: "image",
+        src: "images/grid1.png",
+      }
+    ],
+    fullDescription: `GRID is a real-time digital twin platform for the East Midlands power grid, built during HackLDN. It brings together National Grid transformer flows, data centre demand, and renewable energy feeds into a single interactive 3D dashboard powered by CesiumJS.
+
+    The platform lets you simulate grid scenarios, visualise substation loads, place data centres and wind farms, and run backtest analyses — all from one view. It combines geospatial data with time-series energy data to give actionable insight into grid capacity and sustainability.`,
+    features: [
+      "3D CesiumJS dashboard with real geospatial data",
+      "Real-time substation and transformer flow visualisation",
+      "Data centre and wind farm placement simulation",
+      "7-day grid backtest and viability analysis",
+      "AI-powered report generation (Flask backend)",
+      "Built during HackLDN hackathon"
+    ],
+    technologies: ["JavaScript", "CesiumJS", "Python", "Flask"],
+    live: "/grid"
+  },
+
   qrDecoder: {
     title: "QR Code Decoder",
     date: "January 28, 2026",
