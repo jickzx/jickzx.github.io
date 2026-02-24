@@ -1,5 +1,4 @@
 // Domain-restricted public token (only works on jickzx.github.io)
-const PUBLIC_ION_TOKEN = window.CESIUM_ION_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NDljYmE0Yy1mOGJkLTQ5ZmYtYmI5Mi1mM2ZlNjA4NzRmOTAiLCJpZCI6MzkyNzY3LCJpYXQiOjE3NzE2OTAwMzF9.MZFUsuqktSz4KtnJi-UvIq7T5-c222prq-QR_6xzxPg";
 
 const urlParams = new URLSearchParams(window.location.search);
 const urlToken  = urlParams.get("ionToken");
