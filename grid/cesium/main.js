@@ -984,56 +984,9 @@ for (const sb of speedBtns) {
 
 document.getElementById("btn-refresh")?.addEventListener("click", () => location.reload());
 
-document.getElementById("btn-report")?.addEventListener("click", async () => {
-  const btn  = document.getElementById("btn-report");
+document.getElementById("btn-report")?.addEventListener("click", () => {
   const hint = document.getElementById("report-hint");
-
-  if (dataCentres.length === 0 && windTurbines.length === 0) {
-    hint.textContent = "Place at least one data centre or wind farm before generating.";
-    return;
-  }
-
-  btn.disabled     = true;
-  btn.textContent  = "Generating report …";
-  hint.textContent = "Computing 7-day backtest, calling Gemini AI …";
-
-  const payload = {
-    dataCentres: dataCentres.map(dc => ({
-      name: dc.name, capacity: dc.capacity,
-      pue: dc.pue, cooling: dc.cooling,
-      lat: dc.lat, lon: dc.lon,
-    })),
-    windTurbines: windTurbines.map(wt => ({
-      name: wt.name, perTurbine: wt.perTurbine,
-      count: wt.count, capacityMW: wt.capacityMW,
-      capacityFactor: wt.capacityFactor,
-      lat: wt.lat, lon: wt.lon,
-    })),
-  };
-
-  try {
-    const resp = await fetch("/api/generate-report", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (!resp.ok) {
-      const err = await resp.json().catch(() => ({ error: resp.statusText }));
-      throw new Error(err.error || "Report generation failed");
-    }
-    const blob = await resp.blob();
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement("a");
-    a.href = url; a.download = `grid-report-${new Date().toISOString().slice(0, 10)}.pdf`;
-    a.click(); URL.revokeObjectURL(url);
-    hint.textContent = "Report downloaded successfully.";
-  } catch (err) {
-    console.error("Report error:", err);
-    hint.textContent = `Error: ${err.message}`;
-  } finally {
-    btn.disabled    = false;
-    btn.textContent = "📊 Generate Viability Report";
-  }
+  hint.textContent = "Report generation requires the backend server and is not available in the live demo.";
 });
 
 // ══════════════════════════════════════════════════════════════════

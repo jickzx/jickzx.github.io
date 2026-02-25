@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Inject Cesium Ion token
+        run: echo 'window.CESIUM_ION_TOKEN="${{ secrets.CESIUM_ION_TOKEN }}";' > grid/cesium/token.local.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
