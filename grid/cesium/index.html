@@ -184,7 +184,8 @@
 
 <div id="cesiumContainer"></div>
 
-<script src="./token.local.js"></script>
+<!-- token.local.js is gitignored; only used for offline/local dev fallback -->
+<script src="./token.local.js" onerror=""></script>
 <script type="module" src="./main.js"></script>
 </body>
 </html>

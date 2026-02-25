@@ -1,13 +1,27 @@
-// Domain-restricted public token (only works on jickzx.github.io)
+// ══════════════════════════════════════════════════════════════════
+//  TOKEN — fetched from backend broker; never stored in this file
+// ══════════════════════════════════════════════════════════════════
+let ionToken = null;
 
-const urlParams = new URLSearchParams(window.location.search);
-const urlToken  = urlParams.get("ionToken");
-const storedToken = localStorage.getItem("cesiumIonToken");
-const fileToken = window.CESIUM_ION_TOKEN;
-const ionToken  = urlToken || storedToken || fileToken || PUBLIC_ION_TOKEN;
+async function fetchCesiumToken() {
+  // 1. Try the backend token broker (works when Flask is serving)
+  try {
+    const resp = await fetch("/api/cesium-token");
+    if (resp.ok) {
+      const data = await resp.json();
+      if (data.token) return data.token;
+    }
+  } catch (_) { /* backend unreachable — fall through */ }
 
-if (urlToken) localStorage.setItem("cesiumIonToken", urlToken);
-if (ionToken)  Cesium.Ion.defaultAccessToken = ionToken;
+  // 2. Fallback: gitignored token.local.js may have set this (local dev)
+  if (window.CESIUM_ION_TOKEN) return window.CESIUM_ION_TOKEN;
+
+  console.warn("No Cesium Ion token available — terrain & buildings disabled.");
+  return null;
+}
+
+ionToken = await fetchCesiumToken();
+if (ionToken) Cesium.Ion.defaultAccessToken = ionToken;
 
 // ══════════════════════════════════════════════════════════════════
 //  VIEWER
