@@ -1,0 +1,4 @@
+token.local.js
+.env
+__pycache__/
+*.pyc
