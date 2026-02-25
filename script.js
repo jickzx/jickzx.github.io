@@ -35,7 +35,7 @@ document.querySelectorAll('.project-card, .about-content').forEach(el => {
 const projectData = {
 
   hackldn: {
-    title: "GRID — East Midlands Digital Twin",
+    title: "GRID",
     date: "January 28, 2026",
     media: [
       {
@@ -258,7 +258,8 @@ const projectData = {
       "First web development project",
       "Foundation for future learning"
     ],
-    technologies: ["HTML", "CSS", "JavaScript"]
+    technologies: ["HTML", "CSS", "JavaScript"],
+    live: "/johnxina",
   }
 };
 
