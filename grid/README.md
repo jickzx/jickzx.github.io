@@ -86,22 +86,13 @@ This writes `grid_timeseries.json`, `grid_7day.json`, and `grid_usage.geojson` i
 
 ### 2. Set Cesium token
 
-Add your Cesium Ion token to `.env` (this file is gitignored and never pushed):
-
-```
-CESIUM_ION_TOKEN=your_cesium_ion_token_here
-ALLOWED_ORIGINS=https://jickzx.github.io,http://localhost:8765
-```
-
-The Flask server reads `.env` at startup and exposes a **token broker** endpoint (`/api/cesium-token`) that only responds to requests from allowed origins. The token is never embedded in any committed JavaScript file.
-
-For local development without the Flask server, you can optionally create `cesium/token.local.js` (also gitignored):
+Create `HackLDN/cesium/token.local.js`:
 
 ```js
 window.CESIUM_ION_TOKEN = "your_cesium_ion_token";
 ```
 
-> **Security note:** go to [ion.cesium.com/tokens](https://ion.cesium.com/tokens) and restrict your token's **Allowed HTTP Referers** to `https://jickzx.github.io/*` for an extra layer of protection.
+Or pass it via URL: `http://localhost:8765/?ionToken=YOUR_TOKEN`
 
 ### 3. Run
 

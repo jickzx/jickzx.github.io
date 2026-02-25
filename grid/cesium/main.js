@@ -1,38 +1,17 @@
-// ══════════════════════════════════════════════════════════════════
-//  TOKEN — fetched from backend broker; never stored in this file
-// ══════════════════════════════════════════════════════════════════
-let ionToken = null;
+const urlParams = new URLSearchParams(window.location.search);
+const urlToken  = urlParams.get("ionToken");
+const storedToken = localStorage.getItem("cesiumIonToken");
+const fileToken = window.CESIUM_ION_TOKEN;
+const ionToken  = urlToken || storedToken || fileToken;
 
-async function fetchCesiumToken() {
-  // 1. Try the backend token broker (works when Flask is serving)
-  try {
-    const resp = await fetch("/api/cesium-token");
-    if (resp.ok) {
-      const data = await resp.json();
-      if (data.token) return data.token;
-    }
-  } catch (_) { /* backend unreachable — fall through */ }
-
-  // 2. Fallback: gitignored token.local.js may have set this (local dev)
-  if (window.CESIUM_ION_TOKEN) return window.CESIUM_ION_TOKEN;
-
-  console.warn("No Cesium Ion token available — terrain & buildings disabled.");
-  return null;
-}
-
-ionToken = await fetchCesiumToken();
-if (ionToken) Cesium.Ion.defaultAccessToken = ionToken;
+if (urlToken) localStorage.setItem("cesiumIonToken", urlToken);
+if (ionToken)  Cesium.Ion.defaultAccessToken = ionToken;
 
 // ══════════════════════════════════════════════════════════════════
 //  VIEWER
 // ══════════════════════════════════════════════════════════════════
 const viewer = new Cesium.Viewer("cesiumContainer", {
   terrain: ionToken ? Cesium.Terrain.fromWorldTerrain() : undefined,
-  baseLayer: new Cesium.ImageryLayer(
-    new Cesium.OpenStreetMapImageryProvider({
-      url: "https://tile.openstreetmap.org/",
-    })
-  ),
   timeline: true,
   animation: true,
   shouldAnimate: true,
@@ -1031,15 +1010,6 @@ document.getElementById("btn-report")?.addEventListener("click", async () => {
       lat: wt.lat, lon: wt.lon,
     })),
   };
-
-  // Guard: report generation requires the Flask backend (not available on GitHub Pages)
-  const isStaticHost = window.location.hostname.includes("github.io") || window.location.protocol === "file:";
-  if (isStaticHost) {
-    hint.textContent = "Report generation is not available in the static demo. Run the Flask backend locally for this feature.";
-    btn.disabled    = false;
-    btn.textContent = "📊 Generate Viability Report";
-    return;
-  }
 
   try {
     const resp = await fetch("/api/generate-report", {
