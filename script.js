@@ -55,7 +55,7 @@ const projectData = {
       "Built during HackLDN hackathon"
     ],
     technologies: ["JavaScript", "CesiumJS", "Python", "Flask"],
-    live: "/grid"
+    live: "/grid/entrance.html"
   },
 
   qrDecoder: {
