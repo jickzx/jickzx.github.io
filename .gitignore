@@ -1,7 +1,6 @@
 .github/copilot-instructions.md
 **/copilot-instructions.md
 holy yap.txt
-
-# Secrets — never commit tokens or env files
 **/.env
 **/token.local.js
+company
