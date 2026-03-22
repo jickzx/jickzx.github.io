@@ -1,3 +1,5 @@
+# This website is being re-worked on currently. please wait for now!
+
 Any feedback on this website will be very useful, as this is an unfinished project and may still be unfinished until everything looks polished, readable and has some animations.
 
 Disclaimer: this is not Mobile Friendly. Not yet. I'll get to that point soon.
