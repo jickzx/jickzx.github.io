@@ -11,12 +11,12 @@
       //   label: "posts"
       // },
       {
-        href: "https://github.com/ron0studios",
+        href: "https://github.com/jickzx",
         label: "github",
         external: true
       },
       {
-        href: "https://www.linkedin.com/in/rudrrayan/",
+        href: "https://www.linkedin.com/in/jaesp/",
         label: "linkedin",
         external: true
       }
@@ -29,6 +29,14 @@
             date: "Mar-Apr | Internship",
             title: "Practera",
             desc: "Technology Innovation & Solutions",
+            className: "span-2",
+            links: [
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7437594447497990144/",
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              }
+            ]
           },
           {
             date: "Mar | Hackathon",
@@ -38,11 +46,26 @@
           {
             date: "Mar | Hackathon",
             title: "SotonHack",
-            desc: "Distributed Systems + Inference Engineering"
+            desc: "",
+            links: [
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7439404592322203648",
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              },
+
+            ]
           },
           {
             date: "Feb-Mar | Hackathon",
             title: "HackSussex",
+            links: [
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7439404592322203648",
+                iconClass: "icon-linkedin",
+                title: "LinkedIn"
+              },
+            ]
           },
           {
             date: "Feb | Hackathon",
@@ -51,8 +74,9 @@
             links: [
               {
                 href: "https://www.linkedin.com/feed/update/urn:li:activity:7433798301671387136/",
+                external: true,
                 iconClass: "icon-linkedin",
-                title: "LinkedIn"
+                title: "LinkedIn",
               },
               {
                 // href: "",
@@ -82,7 +106,7 @@
                 title: "LinkedIn"
               },
               {
-                href: "https://github.com/ron0studios/WAVELET",
+                href: "https://github.com/jickzx/Snowball-plus",
                 iconClass: "icon-github",
                 title: "GitHub"
               }
@@ -93,12 +117,12 @@
             title: "HackNotts",
             links: [
               {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7398430753149067264/",
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7412221033941774337/",
                 iconClass: "icon-linkedin",
                 title: "LinkedIn"
               },
               {
-                href: "https://github.com/logilinux/logilinux",
+                href: "https://github.com/UoN-HackNotts/Paladins-Of-Pi",
                 iconClass: "icon-github",
                 title: "GitHub"
               }
