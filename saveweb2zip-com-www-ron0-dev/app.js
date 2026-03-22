@@ -26,7 +26,9 @@
         year: "2026",
         items: [
           {
-            date: "",
+            date: "Mar-Apr | Internship",
+            title: "Practera",
+            desc: "Technology Innovation & Solutions",
           },
           {
             date: "Mar | Hackathon",
