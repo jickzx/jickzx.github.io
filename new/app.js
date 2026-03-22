@@ -28,8 +28,8 @@
           {
             date: "Mar-Apr | Internship",
             title: "Practera",
-            desc: "Technology Innovation & Solutions",
-            className: "span-2",
+            desc: "Software Engineering Intern",
+            className: "span-2 practera-card",
             links: [
               {
                 href: "https://www.linkedin.com/feed/update/urn:li:activity:7437594447497990144/",
@@ -87,8 +87,10 @@
           },
           {
             date: "Jan-Feb | Hackathon",
-            titleHtml: '<span class="text-groq">Groq</span> <span class="text-nvidia">(now NVIDIA)</span>',
-            desc: "Distributed Systems + Inference Engineering"
+            title: "UCL RealTech Hackathon",
+            // MARK: coloured titles
+            // titleHtml: '<span class="text-groq">Groq</span> <span class="text-nvidia">(now NVIDIA)</span>',
+            desc: "",
           }
         ]
       },
@@ -134,15 +136,10 @@
             desc: "204th Overall, 9th in Nottingham"
           },
           {
-
+            date: "Sep | Competitive Programming",
+            title: "Nottingham Annual Coding Competition",
+            desc: "21st Out Of 34 Teams",
             className: "span-2",
-            links: [
-              {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7391092940523151360/",
-                iconClass: "icon-linkedin",
-                title: "LinkedIn"
-              }
-            ]
           }
         ]
       }

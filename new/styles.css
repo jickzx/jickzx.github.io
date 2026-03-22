@@ -401,6 +401,30 @@ hr {
   flex-direction: column;
   position: relative;
 }
+.timeline-item.practera-card {
+  border: 1.5px solid transparent;
+  border-radius: 0;
+  background: var(--bg-color);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  border-image: linear-gradient(90deg, #7fb6ff 0%, #dcebff 58%, #ffffff 100%) 1;
+}
+.timeline-item.practera-card .timeline-date {
+  color: #dcebff;
+  opacity: 0.9;
+}
+.timeline-item.practera-card .timeline-title {
+  color: #f8fbff;
+}
+.timeline-item.practera-card .timeline-desc {
+  color: #d7e8ff;
+  opacity: 0.95;
+}
+.timeline-item.practera-card .timeline-icons a {
+  opacity: 0.9;
+}
+.timeline-item.practera-card .timeline-icons a:hover {
+  opacity: 1;
+}
 .timeline-icons {
   position: absolute;
   top: 0.5rem;
@@ -496,8 +520,8 @@ hr {
   margin-top: 0.2rem;
 }
 .dark {
-  --bg-color: #291e2e;
-  --bg-variant: #221825;
+  --bg-color: #10263B;
+  --bg-variant: #10263B;
   --primary: #a6f7b8;
   --primary-variant: #bdf5c4;
   --secondary: #fa89e7;
