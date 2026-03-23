@@ -28,7 +28,7 @@
           {
             date: "Mar-Apr | Internship",
             title: "Practera",
-            desc: "Technology Intern",
+            desc: "Software Engineer Intern",
             className: "span-2 practera-card",
             links: [
               {
@@ -41,7 +41,15 @@
           {
             date: "Mar | Hackathon",
             title: "Nottingham MedTech Hackathon",
+            className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">2nd Place</span>',
+            links: [
+              {
+                href: "https://vikas-projects25.github.io/Physio-Track/",
+                iconClass: "icon-internet",
+                title: "Internet",
+              }
+            ]
           },
           {
             date: "Mar | Hackathon",
@@ -70,6 +78,8 @@
           {
             date: "Feb | Hackathon",
             title: "HackLondon",
+            className: "gold-outline",
+            // className: "span-2",
             descHtml: '<span class="timeline-award-strong">1st Place</span>',
             links: [
               {
@@ -78,10 +88,16 @@
                 iconClass: "icon-linkedin",
                 title: "LinkedIn",
               },
+              // {
+              //   // href: "",
+              //   // iconClass: "icon-github",
+              //   // title: "GitHub"
+              // },
               {
-                // href: "",
-                // iconClass: "icon-github",
-                // title: "GitHub"
+                href: "https://jickzx.github.io/grid/entrance.html",
+                external: true,
+                iconClass: "icon-internet",
+                title: "globe",
               }
             ]
           },
@@ -100,10 +116,11 @@
           {
             date: "Dec | Hackathon",
             title: "Nottingham Winter GameJam",
+            className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">1st Place</span>',
             links: [
               {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7395862667153997824/",
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7412221033941774337/",
                 iconClass: "icon-linkedin",
                 title: "LinkedIn"
               },
@@ -139,7 +156,6 @@
             date: "Sep | Competitive Programming",
             title: "Nottingham Annual Coding Competition",
             desc: "21st Out Of 34 Teams",
-            className: "span-2",
           }
         ]
       }

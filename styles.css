@@ -572,6 +572,12 @@ hr {
   font-weight: 600;
 }
 
+/* gold outline */
+.timeline-item.gold-outline {
+  border-color: gold !important;
+  transition: box-shadow 250ms ease, transform 200ms ease;
+}
+
 .is-muted-half {
   opacity: 0.5;
 }
