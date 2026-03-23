@@ -28,7 +28,7 @@
           {
             date: "Mar-Apr | Internship",
             title: "Practera",
-            desc: "Software Engineering Intern",
+            desc: "Technology Intern",
             className: "span-2 practera-card",
             links: [
               {
