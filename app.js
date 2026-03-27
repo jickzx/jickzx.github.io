@@ -54,7 +54,7 @@
           {
             date: "Mar | Hackathon",
             title: "SotonHack",
-            desc: "My teammate won best meme prize, so we all won :)",
+            descHtml: '<span class="timeline-award-strong">My teammate won best meme prize, </span> so we all won :)',
             className: "gold-outline",
             links: [
               {
@@ -108,6 +108,14 @@
             // MARK: coloured titles
             // titleHtml: '<span class="text-groq">Groq</span> <span class="text-nvidia">(now NVIDIA)</span>',
             desc: "",
+            links: [
+              {
+                href: "https://www.linkedin.com/posts/jaesp_last-weekend-i-participated-in-ucl-centre-activity-7426202777065803776-mOk_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbFFzIB3Tx1IVuB1_kwaPIfVdFgDkvfr_o",
+                external: true,
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              }
+            ]
           }
         ]
       },
