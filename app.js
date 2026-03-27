@@ -54,7 +54,8 @@
           {
             date: "Mar | Hackathon",
             title: "SotonHack",
-            desc: "",
+            desc: "My teammate won best meme prize, so we all won :)",
+            className: "gold-outline",
             links: [
               {
                 href: "https://www.linkedin.com/feed/update/urn:li:activity:7439404592322203648",
