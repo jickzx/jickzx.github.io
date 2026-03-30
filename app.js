@@ -26,9 +26,20 @@
         year: "2026",
         items: [
           {
-            date: "Mar-Apr | Internship",
+            date: "Jun | Hackathon",
+            title: "Hack The Law, Cambridge",
+
+          }
+          , 
+          {
+            date: "Apr | Hackathon",
+            title: "HackNotts",
+            desc: "Incoming...",
+          },
+          {
+            date: "Apr | Internship",
             title: "Practera",
-            desc: "Software Engineer Intern",
+            desc: "Incoming - Technology & Innovation Intern",
             className: "span-2 practera-card",
             links: [
               {
@@ -40,7 +51,7 @@
           },
           {
             date: "Mar | Hackathon",
-            title: "Nottingham MedTech Hackathon",
+            title: "Nottingham MedTech Hack",
             className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">2nd Place</span>',
             links: [
