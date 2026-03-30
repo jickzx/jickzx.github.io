@@ -28,12 +28,12 @@
           {
             date: "Jun | Hackathon",
             title: "Hack The Law, Cambridge",
-
+            desc: "Incoming...",
           }
           , 
           {
             date: "Apr | Hackathon",
-            title: "HackNotts",
+            title: "{Tech: Europe} London AI Hackathon",
             desc: "Incoming...",
           },
           {
