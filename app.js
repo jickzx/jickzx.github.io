@@ -29,8 +29,12 @@
             date: "Jun | Hackathon",
             title: "Hack The Law, Cambridge",
             desc: "Incoming...",
-          }
-          , 
+          },
+          {
+            date: "Apr | Spring Insight",
+            title: "Marsh McLennan",
+            desc: "Incoming...",
+          }, 
           {
             date: "Apr | Hackathon",
             title: "{Tech: Europe} London AI Hackathon",
@@ -176,6 +180,21 @@
             date: "Sep | Competitive Programming",
             title: "Nottingham Annual Coding Competition",
             desc: "21st Out Of 34 Teams",
+          }
+        ]
+      },
+      {
+        year: "2024",
+        items: [
+          {
+            date: "Apr & Sep | Spring Insight",
+            title: "PwC, More London Office",
+            desc: "Virtual Insight, then invited in September for in-person day"
+          },
+          {
+            date: "Mar | Spring Insight",
+            title: "ARM, Cambridge Office",
+            desc: "Joined with 30 other students"
           }
         ]
       }
