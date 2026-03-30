@@ -32,6 +32,11 @@
           },
           {
             date: "Apr | Spring Insight",
+            title: "Glencore",
+            desc: "Trading & Commodities (pretend i got this one, but they havent said anything to me yet)", 
+          },
+          {
+            date: "Apr | Spring Insight",
             title: "Marsh McLennan",
             desc: "Incoming...",
           }, 
