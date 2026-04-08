@@ -25,25 +25,25 @@
       {
         year: "2026",
         items: [
-          {
-            date: "Jun | Hackathon",
-            title: "Hack The Law, Cambridge",
-            desc: "Incoming...",
-          },
-          {
-            date: "Apr | Hackathon",
-            title: "HackBelfast",
-            desc: "Incoming...",
-          }, 
-          {
-            date: "Apr | Hackathon",
-            title: "{Tech: Europe} London AI Hackathon",
-            desc: "Incoming...",
-          },
+          // {
+          //   date: "Jun | Hackathon",
+          //   title: "Hack The Law, Cambridge",
+          //   desc: "Incoming...",
+          // },
+          // {
+          //   date: "Apr | Hackathon",
+          //   title: "HackBelfast",
+          //   desc: "Incoming...",
+          // }, 
+          // {
+          //   date: "Apr | Hackathon",
+          //   title: "{Tech: Europe} London AI Hackathon",
+          //   desc: "Incoming...",
+          // },
           {
             date: "Apr | Internship",
             title: "Practera",
-            desc: "Incoming - Technology & Innovation Intern",
+            desc: "Technology & Innovation Intern, working for a Canadian startup",
             className: "span-2 practera-card",
             links: [
               {
@@ -69,7 +69,7 @@
           {
             date: "Mar | Hackathon",
             title: "SotonHack",
-            descHtml: '<span class="timeline-award-strong">My teammate won best meme prize, </span> so we all won :)',
+            descHtml: '<span class="timeline-award-strong">My teammate won best meme!</span>',
             className: "gold-outline",
             links: [
               {

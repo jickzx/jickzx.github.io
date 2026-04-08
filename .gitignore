@@ -5,3 +5,5 @@ holy yap.txt
 **/token.local.js
 company
 .DS_Store
+/.vscode
+holy yap.txt
