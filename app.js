@@ -6,10 +6,14 @@
         label: "home",
         className: "text-decoration-underline link-offset-3"
       },
-      // {
-      //   href: "/posts",
-      //   label: "posts"
-      // },
+      {
+        href: "/about.html",
+        label: "about"
+      },
+      {
+        href: "/posts.html",
+        label: "posts"
+      },
       {
         href: "https://github.com/jickzx",
         label: "github",
@@ -19,12 +23,17 @@
         href: "https://www.linkedin.com/in/jaesp/",
         label: "linkedin",
         external: true
-      }
+      },
     ],
     timeline: [
       {
         year: "2026",
         items: [
+          // {
+          //   date: "Jun | Internship",
+          //   title: "Bright Network",
+          //   desc: "IEUK "
+          // },
           // {
           //   date: "Jun | Hackathon",
           //   title: "Hack The Law, Cambridge",
@@ -35,11 +44,11 @@
           //   title: "HackBelfast",
           //   desc: "Incoming...",
           // }, 
-          // {
-          //   date: "Apr | Hackathon",
-          //   title: "{Tech: Europe} London AI Hackathon",
-          //   desc: "Incoming...",
-          // },
+          {
+            date: "Apr | Hackathon",
+            title: "{Tech: Europe} London AI Hackathon",
+            desc: "",
+          },
           {
             date: "Apr | Internship",
             title: "Practera",
