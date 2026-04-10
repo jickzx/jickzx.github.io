@@ -30,9 +30,10 @@
         year: "2026",
         items: [
           {
-            date: "Jun | Virtual Internship",
+            date: "Jun | Internship",
             title: "Bright Network",
-            desc: "IEUK",
+            desc: "IEUK, Incoming Technology Internship (this is a backup internship incase if I cannot land any of the Nottingham Internship Schemes",
+            className: "span-2",
           },
           // {
           //   date: "Jun | Hackathon",
@@ -80,25 +81,10 @@
             title: "SotonHack",
             descHtml: '<span class="timeline-award-strong">My teammate won best meme!</span>',
             className: "gold-outline",
-            links: [
-              {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7439404592322203648",
-                iconClass: "icon-linkedin",
-                title: "LinkedIn",
-              },
-
-            ]
           },
           {
             date: "Feb-Mar | Hackathon",
             title: "HackSussex",
-            links: [
-              {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7439404592322203648",
-                iconClass: "icon-linkedin",
-                title: "LinkedIn"
-              },
-            ]
           },
           {
             date: "Feb | Hackathon",
@@ -132,14 +118,6 @@
             // MARK: coloured titles
             // titleHtml: '<span class="text-groq">Groq</span> <span class="text-nvidia">(now NVIDIA)</span>',
             desc: "",
-            links: [
-              {
-                href: "https://www.linkedin.com/posts/jaesp_last-weekend-i-participated-in-ucl-centre-activity-7426202777065803776-mOk_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbFFzIB3Tx1IVuB1_kwaPIfVdFgDkvfr_o",
-                external: true,
-                iconClass: "icon-linkedin",
-                title: "LinkedIn",
-              }
-            ]
           }
         ]
       },
