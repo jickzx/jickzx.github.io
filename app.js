@@ -105,7 +105,7 @@
               //   // title: "GitHub"
               // },
               {
-                href: "https://jickzx.github.io/grid/entrance.html",
+                href: "https://grid-alpha-amber.vercel.app/",
                 external: true,
                 iconClass: "icon-internet",
                 title: "globe",
