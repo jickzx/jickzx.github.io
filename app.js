@@ -48,12 +48,14 @@
           {
             date: "Apr | Hackathon",
             title: "{Tech: Europe} London AI Hackathon",
-            desc: "",
+            className: "gold-outline",
+            // className: "span-2",
+            descHtml: '<span class="timeline-award-strong">1st & 2nd Place - Gradium, Google</span>',
           },
           {
             date: "Apr | Internship",
             title: "Practera",
-            desc: "Technology & Innovation Intern, working for a Canadian startup",
+            desc: "Project Manager. Briefing for a Startup",
             className: "span-2 practera-card",
             links: [
               {
@@ -79,7 +81,7 @@
           {
             date: "Mar | Hackathon",
             title: "SotonHack",
-            descHtml: '<span class="timeline-award-strong">My teammate won best meme!</span>',
+            descHtml: '<span class="timeline-award-strong">My teammate, Anson, won best meme!</span>',
             className: "gold-outline",
           },
           {
