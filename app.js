@@ -55,7 +55,7 @@
           {
             date: "Apr | Internship",
             title: "Practera",
-            desc: "Project Manager. Briefing for a Startup",
+            desc: "Student Consultant - Project Manager for Startup company Aeggnologie Corp.",
             className: "span-2 practera-card",
             links: [
               {
@@ -67,7 +67,7 @@
           },
           {
             date: "Mar | Hackathon",
-            title: "Nottingham MedTech Hack",
+            title: "UoN MedTech Hackathon",
             className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">2nd Place</span>',
             links: [
@@ -120,6 +120,11 @@
             // MARK: coloured titles
             // titleHtml: '<span class="text-groq">Groq</span> <span class="text-nvidia">(now NVIDIA)</span>',
             desc: "",
+          },
+          {
+            date: "Jan | Experience",
+            title: "APSTEM Technology Ambassador",
+            desc: ""
           }
         ]
       },
@@ -128,7 +133,7 @@
         items: [
           {
             date: "Dec | Hackathon",
-            title: "Nottingham Winter GameJam",
+            title: "UoN Winter GameJam",
             className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">1st Place</span>',
             links: [
@@ -169,6 +174,11 @@
             date: "Sep | Competitive Programming",
             title: "Nottingham Annual Coding Competition",
             desc: "21st Out Of 34 Teams",
+          },
+          {
+            date: "Apr | Personal Project",
+            title: "Query a Degree",
+            desc: "Query a Degree by comparing your chances to previous students by inputting grades. Awarded 53/70 marks."
           }
         ]
       },
