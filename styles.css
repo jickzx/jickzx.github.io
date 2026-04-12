@@ -231,6 +231,11 @@ blockquote {
 .post-summary {
   margin: 0;
 }
+.post-row > .d-flex {
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 1.25rem;
+}
 ul:has(input[type="checkbox"]) {
   margin-left: 0 !important;
   padding-left: 0.5rem !important;
