@@ -50,7 +50,7 @@
             title: "{Tech: Europe} London AI Hackathon",
             className: "gold-outline",
             // className: "span-2",
-            descHtml: '<span class="timeline-award-strong">1st & 2nd Place - Gradium, Google</span>',
+            descHtml: '<span class="timeline-award-strong">1st Gradium, 2nd Google, 2nd Overall</span>',
           },
           {
             date: "Apr | Internship",
