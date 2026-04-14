@@ -32,7 +32,7 @@
           {
             date: "Jun | Internship",
             title: "Bright Network",
-            desc: "IEUK, Incoming Technology Internship (this is a backup internship incase if I cannot land any of the Nottingham Internship Schemes",
+            desc: "IEUK, Incoming Technology Internship (backup internship)",
             className: "span-2",
           },
           // {
@@ -123,8 +123,8 @@
           },
           {
             date: "Jan | Experience",
-            title: "APSTEM Technology Ambassador",
-            desc: ""
+            title: "APSTEM",
+            desc: "Technology Ambassador",
           }
         ]
       },
