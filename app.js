@@ -44,7 +44,12 @@
           //   date: "Apr | Hackathon",
           //   title: "HackBelfast",
           //   desc: "",
-          // }, 
+          // },
+          {
+            date: "Apr | Hackathon",
+            title: "Global HackTour London",
+            desc: "Soon."
+          }, 
           {
             date: "Apr | Hackathon",
             title: "{Tech: Europe} London AI Hackathon",
