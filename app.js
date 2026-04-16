@@ -40,11 +40,11 @@
           //   title: "Hack The Law, Cambridge",
           //   desc: "Incoming...",
           // },
-          {
-            date: "Apr | Hackathon",
-            title: "HackBelfast",
-            desc: "",
-          }, 
+          // {
+          //   date: "Apr | Hackathon",
+          //   title: "HackBelfast",
+          //   desc: "",
+          // }, 
           {
             date: "Apr | Hackathon",
             title: "{Tech: Europe} London AI Hackathon",
