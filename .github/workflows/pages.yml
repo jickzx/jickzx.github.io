@@ -25,6 +25,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Cache-bust asset references
+        run: |
+          HASH=$(git rev-parse --short HEAD)
+          echo "Busting caches with hash: $HASH"
+          find . -name '*.html' -not -path './.git/*' | while read f; do
+            sed -i \
+              -e "s|\.css\"|.css?v=$HASH\"|g" \
+              -e "s|\.css'|.css?v=$HASH'|g" \
+              -e "s|\.js\"|.js?v=$HASH\"|g" \
+              -e "s|\.js'|.js?v=$HASH'|g" \
+              "$f"
+          done
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
