@@ -45,17 +45,24 @@
           //   title: "HackBelfast",
           //   desc: "",
           // },
-          // {
-          //   date: "Apr | Hackathon",
-          //   title: "Global HackTour London",
-          //   desc: "Soon."
-          // }, 
+          {
+            date: "Apr | Hackathon",
+            title: "Global HackTour London",
+            desc: ""
+          }, 
           {
             date: "Apr | Hackathon",
             title: "{Tech: Europe} London AI Hackathon",
             className: "gold-outline",
             // className: "span-2",
             descHtml: '<span class="timeline-award-strong">1st Gradium, 2nd Google, 3rd Overall</span>',
+            links: [
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7449353115927011328/",
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              }
+            ]
           },
           {
             date: "Apr | Internship",
