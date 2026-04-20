@@ -212,29 +212,7 @@
     ]
   };
 
-  function getSystemTheme() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
-
-  function getStoredTheme() {
-    try {
-      return window.localStorage.getItem("theme") || getSystemTheme();
-    } catch (error) {
-      return getSystemTheme();
-    }
-  }
-
-  function updateThemeLabel(theme) {
-    var label = document.getElementById("theme-label");
-    if (label) {
-      label.textContent = theme === "dark" ? "dark mode" : "light mode";
-    }
-  }
-
-  function updateGiscusTheme(theme) {
-    var giscusTheme = theme === "dark" ? "dark" : "light";
+  function updateGiscusTheme() {
     var frame = document.querySelector("iframe.giscus-frame");
 
     if (frame && frame.contentWindow) {
@@ -242,7 +220,7 @@
         {
           giscus: {
             setConfig: {
-              theme: giscusTheme
+              theme: "dark"
             }
           }
         },
@@ -251,38 +229,10 @@
     }
   }
 
-  function applyTheme(theme) {
-    document.body.classList.remove("dark", "text-dark", "text-light");
-
-    if (theme === "dark") {
-      document.body.classList.add("dark", "text-light");
-    } else {
-      document.body.classList.add("text-dark");
-    }
-
-    updateThemeLabel(theme);
-    updateGiscusTheme(theme);
-  }
-
-  function toggleTheme() {
-    var nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
-
-    try {
-      window.localStorage.setItem("theme", nextTheme);
-    } catch (error) {
-      // Ignore storage failures and still update the UI.
-    }
-
-    applyTheme(nextTheme);
-  }
-
-  function bindThemeToggle() {
-    var toggle = document.getElementById("theme-toggle");
-    if (toggle) {
-      toggle.addEventListener("click", toggleTheme);
-    }
-
-    updateThemeLabel(document.body.classList.contains("dark") ? "dark" : "light");
+  function applyDarkMode() {
+    document.body.classList.remove("text-dark");
+    document.body.classList.add("dark", "text-light");
+    updateGiscusTheme();
   }
 
   function escapeHtml(value) {
@@ -369,7 +319,7 @@
   }
 
   function initDom() {
-    bindThemeToggle();
+    applyDarkMode();
     renderPage();
   }
 
@@ -379,11 +329,11 @@
     }
 
     if (event.data && event.data.giscus) {
-      updateGiscusTheme(document.body.classList.contains("dark") ? "dark" : "light");
+      updateGiscusTheme();
     }
   });
 
-  applyTheme(getStoredTheme());
+  applyDarkMode();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initDom, { once: true });
