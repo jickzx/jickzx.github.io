@@ -69,13 +69,6 @@
             title: "Practera",
             desc: "Student Consultant - Project Manager for Startup company Aeggnologie Corp.",
             className: "span-2 practera-card",
-            links: [
-              {
-                href: "https://www.linkedin.com/feed/update/urn:li:activity:7437594447497990144/",
-                iconClass: "icon-linkedin",
-                title: "LinkedIn",
-              }
-            ]
           },
           {
             date: "Mar | Hackathon",
