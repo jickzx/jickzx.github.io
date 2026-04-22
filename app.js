@@ -26,7 +26,7 @@
       },
       {
         href: "je_cv_april_2026.pdf",
-        label: "cv",
+        label: "cv (22.04.26)",
         external: true
       },
     ],
