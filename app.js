@@ -24,6 +24,11 @@
         label: "linkedin",
         external: true
       },
+      {
+        href: "je_cv_april_2026.pdf",
+        label: "cv",
+        external: true
+      },
     ],
     timeline: [
       {
