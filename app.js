@@ -48,7 +48,7 @@
           {
             date: "Apr | Hackathon",
             title: "HackBelfast",
-            descHtml: "Won HRT's track on Best Use of Data",
+            descHtml: '<span class="timeline-award-strong">Won HRT: Best use of Data</span>',
           },
           {
             date: "Apr | Hackathon",
