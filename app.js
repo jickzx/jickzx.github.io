@@ -48,6 +48,7 @@
           {
             date: "Apr | Hackathon",
             title: "HackBelfast",
+            className: "gold-outline",
             descHtml: '<span class="timeline-award-strong">Won HRT: Best use of Data</span>',
           },
           {
