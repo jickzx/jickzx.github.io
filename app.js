@@ -26,7 +26,7 @@
       },
       {
         href: "je_cv_april_2026.pdf",
-        label: "cv",
+        label: "cv (22.04.26)",
         external: true
       },
     ],
@@ -45,11 +45,11 @@
           //   title: "Hack The Law, Cambridge",
           //   desc: "Incoming...",
           // },
-          // {
-          //   date: "Apr | Hackathon",
-          //   title: "HackBelfast",
-          //   desc: "",
-          // },
+          {
+            date: "Apr | Hackathon",
+            title: "HackBelfast",
+            descHtml: "Won HRT's track on Best Use of Data",
+          },
           {
             date: "Apr | Hackathon",
             title: "Global HackTour London",
