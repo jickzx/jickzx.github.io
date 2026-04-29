@@ -49,7 +49,7 @@
             date: "Apr | Hackathon",
             title: "HackBelfast",
             className: "gold-outline",
-            descHtml: '<span class="timeline-award-strong">Won HRT: Best use of Data</span>',
+            descHtml: '<span class="timeline-award-strong">1st Gradium, 2nd Google, 3rd Overall</span>',
           },
           {
             date: "Apr | Hackathon",
