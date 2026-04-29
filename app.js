@@ -48,7 +48,8 @@
           {
             date: "Apr | Hackathon",
             title: "HackBelfast",
-            descHtml: "Won HRT's track on Best Use of Data",
+            className: "gold-outline",
+            descHtml: '<span class="timeline-award-strong">Best Use of Data - Hudson River Trading</span>',
           },
           {
             date: "Apr | Hackathon",
