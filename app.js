@@ -34,12 +34,12 @@
       {
         year: "2026",
         items: [
-          {
-            date: "Jun | Internship",
-            title: "Bright Network",
-            desc: "IEUK, Incoming Technology Internship (backup internship)",
-            className: "span-2",
-          },
+          // {
+          //   date: "Jun | Internship",
+          //   title: "Bright Network",
+          //   desc: "IEUK, Incoming Technology Internship (backup internship)",
+          //   className: "span-2",
+          // },
           // {
           //   date: "Jun | Hackathon",
           //   title: "Hack The Law, Cambridge",
