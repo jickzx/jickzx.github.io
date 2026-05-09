@@ -46,6 +46,11 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "May | Webinar",
+            title: "APSTEM University & Apprenticeships Career Paths Webinar ",
+            desc: "University Panelist"
+          },
+          {
             date: "Apr | Hackathon",
             title: "HackBelfast",
             className: "gold-outline",
