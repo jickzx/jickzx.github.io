@@ -47,7 +47,7 @@
           // },
           {
             date: "May | Webinar",
-            title: "APSTEM University & Apprenticeships Career Paths Webinar ",
+            title: "APSTEM University & Apprenticeships Career Paths Webinar",
             desc: "University Panelist"
           },
           {
