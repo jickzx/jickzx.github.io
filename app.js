@@ -83,7 +83,7 @@
           {
             date: "Apr | Internship",
             title: "Practera",
-            desc: "Student Consultant - Project Manager for Startup company Aeggnologie Corp.",
+            desc: "Student Consultant - Project Manager for Dik Doroja's startup: Æggnologie AI.",
             className: "span-2 practera-card",
           },
           {
