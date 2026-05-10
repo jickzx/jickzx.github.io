@@ -25,6 +25,11 @@
         external: true
       },
       {
+        href: "mailto:jamesesp3@gmail.com",
+        label: "email",
+        external: true
+      },
+      {
         href: "je_cv_april_2026.pdf",
         label: "cv (22.04.26)",
         external: true
