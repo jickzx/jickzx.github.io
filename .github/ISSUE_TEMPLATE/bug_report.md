@@ -1,38 +1,60 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+name: Bug Report
+about: Report a bug, content issue, or requested update for the website
+title: "[Site] "
+labels: website
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## What kind of issue is this?
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+- [ ] Bug
+- [ ] Content correction
+- [ ] New post request
+- [ ] Timeline update
+- [ ] Navigation or CV update
+- [ ] Styling or layout issue
+- [ ] Other
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## Affected page or file
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+Example: `index.html`, `posts.html`, `posts/Belciti.html`, `app.js`
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## What is wrong now?
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+Describe the current issue or missing update.
 
-**Additional context**
-Add any other context about the problem here.
+## What should happen instead?
+
+Describe the desired outcome.
+
+## Content, links, dates, or assets to use
+
+Paste any text, URLs, image names, CV filenames, or factual corrections here.
+
+Title:
+
+Date:
+
+Summary:
+
+Links:
+
+Images:
+
+Source of truth:
+
+## Which related updates might be needed?
+
+- [ ] `app.js` timeline or nav data
+- [ ] `posts.html` list entry
+- [ ] A page in `posts/`
+- [ ] Shared styles in `styles.css`
+- [ ] Images in `images/` or `posts/images/`
+- [ ] Open Graph metadata
+
+## Acceptance criteria
+
+- [ ] Page loads correctly
+- [ ] Date/title match everywhere
+- [ ] Links open correctly
+- [ ] Mobile layout still works
