@@ -1,0 +1,85 @@
+name: Site change
+description: Report a bug, content issue, or requested update for the website
+title: "[Site] "
+labels:
+  - website
+body:
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: What kind of issue is this?
+      description: Pick the closest match.
+      options:
+        - Bug
+        - Content correction
+        - New post request
+        - Timeline update
+        - Navigation or CV update
+        - Styling or layout issue
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: affected_page
+    attributes:
+      label: Affected page or file
+      description: Example: `index.html`, `posts.html`, `posts/Belciti.html`, `app.js`
+      placeholder: index.html
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong now?
+      description: Describe the current issue or missing update.
+      placeholder: The timeline is missing the latest hackathon entry, or a link/image is broken.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen instead?
+      description: Describe the desired outcome.
+      placeholder: Add the new timeline card, post entry, or corrected copy/link.
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Content, links, dates, or assets to use
+      description: Paste any text, URLs, image names, CV filenames, or factual corrections here.
+      placeholder: |
+        Title:
+        Date:
+        Summary:
+        Links:
+        Images:
+        Source of truth:
+
+  - type: checkboxes
+    id: related_updates
+    attributes:
+      label: Which related updates might be needed?
+      description: This repo often needs the same change reflected in more than one place.
+      options:
+        - label: `app.js` timeline or nav data
+        - label: `posts.html` list entry
+        - label: A page in `posts/`
+        - label: Shared styles in `styles.css`
+        - label: Images in `images/` or `posts/images/`
+        - label: Open Graph metadata
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List the checks that would make this issue complete.
+      placeholder: |
+        - Page loads correctly
+        - Date/title match everywhere
+        - Links open correctly
+        - Mobile layout still works

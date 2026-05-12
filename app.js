@@ -51,6 +51,11 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "May | Hackathon",
+            title: "Microsoft Hackathon",
+            desc: "Hosted in Loughborough University"
+          },
+          {
             date: "May | Webinar",
             title: "APSTEM University & Apprenticeships Career Paths Webinar",
             desc: "University Panelist"
