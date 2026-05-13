@@ -31,7 +31,7 @@
       },
       {
         href: "/cv/je_cv_may13_2026.pdf",
-        label: "cv (May 10, 2026)",
+        label: "cv (May 13, 2026)",
         external: true
       },
     ],
