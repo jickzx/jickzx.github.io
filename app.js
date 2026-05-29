@@ -51,6 +51,11 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "Jun | Internship",
+            title: "Classroom 42",
+            desc: "Full Stack Developer",
+          },
+          {
             date: "May | Hackathon",
             title: "Microsoft Hackathon",
             desc: "Hosted in Loughborough University"
