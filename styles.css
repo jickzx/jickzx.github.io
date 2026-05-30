@@ -400,6 +400,66 @@ hr {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
   border-image: linear-gradient(90deg, #7fb6ff 0%, #dcebff 58%, #ffffff 100%) 1;
 }
+.timeline-item.classroom42-card {
+  --classroom42-angle: 0deg;
+  --classroom42-blue: #12308a;
+  --classroom42-orange: #ff9353;
+  --classroom42-orange-warm: #fc9253;
+  border: 1.5px solid transparent;
+  border-radius: 0;
+  background: var(--bg-color);
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(18, 48, 138, 0.2),
+    0 0 42px rgba(255, 147, 83, 0.12);
+}
+.timeline-item.classroom42-card::before,
+.timeline-item.classroom42-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--classroom42-angle),
+    var(--classroom42-blue) 0deg,
+    var(--classroom42-orange) 115deg,
+    var(--classroom42-orange-warm) 190deg,
+    var(--classroom42-blue) 285deg,
+    var(--classroom42-orange) 360deg
+  );
+  animation: classroom42-outline-spin 5.5s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.timeline-item.classroom42-card::after {
+  inset: -3px;
+  opacity: 0.7;
+  filter: blur(12px);
+}
+.timeline-item.classroom42-card > * {
+  position: relative;
+  z-index: 1;
+}
+.timeline-item.classroom42-card .timeline-date {
+  color: color-mix(in srgb, white 78%, var(--classroom42-orange) 22%);
+  opacity: 0.92;
+}
+.timeline-item.classroom42-card .timeline-title {
+  color: #f8fbff;
+}
+.timeline-item.classroom42-card .timeline-desc {
+  color: color-mix(in srgb, white 84%, var(--classroom42-orange) 16%);
+  opacity: 0.96;
+}
 .timeline-item.practera-card .timeline-date {
   color: #dcebff;
   opacity: 0.9;
@@ -455,6 +515,19 @@ hr {
 .timeline-item.groq-nvidia {
   border: 2px solid;
   border-image: linear-gradient(135deg, orange, #0b0) 1;
+}
+@keyframes classroom42-outline-spin {
+  from {
+    --classroom42-angle: 0deg;
+  }
+  to {
+    --classroom42-angle: 360deg;
+  }
+}
+@property --classroom42-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
 .timeline-date {
   font-family:

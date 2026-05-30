@@ -51,10 +51,10 @@
           //   desc: "Incoming...",
           // },
           {
-            date: "Jun | Internship",
+            date: "May | Internship",
             title: "Classroom 42",
             desc: "Full Stack Developer",
-            className: "span-2"
+            className: "span-2 classroom42-card"
           },
           {
             date: "May | Hackathon",
