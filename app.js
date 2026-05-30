@@ -54,6 +54,7 @@
             date: "Jun | Internship",
             title: "Classroom 42",
             desc: "Full Stack Developer",
+            className: "span-2"
           },
           {
             date: "May | Hackathon",
