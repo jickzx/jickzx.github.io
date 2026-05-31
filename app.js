@@ -52,8 +52,8 @@
           // },
           {
             date: "May | Internship",
-            title: "Classroom 42",
-            desc: "Full Stack Developer",
+            title: "GCSE Classroom",
+            desc: "Software Engineer Intern",
             className: "span-2 classroom42-card"
           },
           {

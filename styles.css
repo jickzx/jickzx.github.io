@@ -410,10 +410,7 @@ hr {
   background: var(--bg-color);
   isolation: isolate;
   overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 24px rgba(18, 48, 138, 0.2),
-    0 0 42px rgba(255, 147, 83, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 .timeline-item.classroom42-card::before,
 .timeline-item.classroom42-card::after {
@@ -440,9 +437,7 @@ hr {
   mask-composite: exclude;
 }
 .timeline-item.classroom42-card::after {
-  inset: -3px;
-  opacity: 0.7;
-  filter: blur(12px);
+  content: none;
 }
 .timeline-item.classroom42-card > * {
   position: relative;
