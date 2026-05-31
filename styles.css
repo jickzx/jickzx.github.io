@@ -150,6 +150,32 @@ footer a::after {
 .breadcrumb-item + .breadcrumb-item::before {
   color: #6c757d !important;
 }
+.site-brand-item::before {
+  display: none !important;
+}
+.site-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--font-color) !important;
+  text-decoration: none !important;
+}
+.site-brand-link:hover {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+}
+.site-brand-logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  border-radius: 0.35rem;
+  flex-shrink: 0;
+}
+.site-brand-label {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
 .tags a {
   text-decoration: none !important;
 }
@@ -267,6 +293,9 @@ li > input[type="checkbox"] {
   .breadcrumb {
     flex-direction: column !important;
     --bs-breadcrumb-item-padding-x: 0rem !important;
+  }
+  .site-brand-label {
+    font-size: 1.2rem;
   }
   .breadcrumb-item::before {
     display: none !important;

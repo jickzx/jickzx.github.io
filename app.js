@@ -2,11 +2,6 @@
   var siteData = {
     navLinks: [
       {
-        href: "/",
-        label: "home",
-        className: "text-decoration-underline link-offset-3"
-      },
-      {
         href: "/about.html",
         label: "about"
       },
@@ -285,6 +280,48 @@
     ].join("");
   }
 
+  function renderNavBrand(brand) {
+    if (!brand) {
+      return "";
+    }
+
+    return [
+      '<li class="breadcrumb-item site-brand-item my-1 my-md-0">',
+      '<a class="site-brand-link" href="' + escapeHtml(brand.href) + '">',
+      '<img class="site-brand-logo" src="' + escapeHtml(brand.imageSrc) + '" alt="' + escapeHtml(brand.imageAlt) + '">',
+      '<span class="site-brand-label">' + escapeHtml(brand.label) + '</span>',
+      '</a>',
+      '</li>'
+    ].join("");
+  }
+
+  function ensureSiteLogo(brand) {
+    if (!brand || !brand.imageSrc) {
+      return;
+    }
+
+    [
+      { rel: "icon", type: "image/png" },
+      { rel: "apple-touch-icon" }
+    ].forEach(function (iconConfig) {
+      var selector = 'link[rel="' + iconConfig.rel + '"]';
+      var existing = document.head.querySelector(selector);
+      var link = existing || document.createElement("link");
+
+      link.setAttribute("rel", iconConfig.rel);
+
+      if (iconConfig.type) {
+        link.setAttribute("type", iconConfig.type);
+      }
+
+      link.setAttribute("href", brand.imageSrc);
+
+      if (!existing) {
+        document.head.appendChild(link);
+      }
+    });
+  }
+
   function renderLinks(links) {
     if (!links || !links.length) {
       return "";
@@ -330,7 +367,7 @@
     var timelineRoot = document.getElementById("timeline-root");
 
     if (navRoot) {
-      navRoot.innerHTML = siteData.navLinks.map(renderNavLink).join("");
+      navRoot.innerHTML = renderNavBrand(siteData.brand) + siteData.navLinks.map(renderNavLink).join("");
     }
 
     if (timelineRoot) {
@@ -340,6 +377,7 @@
 
   function initDom() {
     applyDarkMode();
+    ensureSiteLogo(siteData.brand);
     renderPage();
   }
 
