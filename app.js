@@ -285,25 +285,8 @@
     ].join("");
   }
 
-  function renderNavBrand(brand) {
-    if (!brand) {
-      return "";
-    }
-
-    return [
-      '<li class="breadcrumb-item site-brand-item my-1 my-md-0">',
-      '<a class="site-brand-link" href="' + escapeHtml(brand.href) + '">',
-      '<img class="site-brand-logo" src="' + escapeHtml(brand.imageSrc) + '" alt="' + escapeHtml(brand.imageAlt) + '">',
-      '<span class="site-brand-label">' + escapeHtml(brand.label) + '</span>',
-      '</a>',
-      '</li>'
-    ].join("");
-  }
-
-  function ensureSiteLogo(brand) {
-    if (!brand || !brand.imageSrc) {
-      return;
-    }
+  function ensureSiteLogo() {
+    var logoHref = "/images/logo.png";
 
     [
       { rel: "icon", type: "image/png" },
@@ -319,7 +302,7 @@
         link.setAttribute("type", iconConfig.type);
       }
 
-      link.setAttribute("href", brand.imageSrc);
+      link.setAttribute("href", logoHref);
 
       if (!existing) {
         document.head.appendChild(link);
@@ -372,7 +355,7 @@
     var timelineRoot = document.getElementById("timeline-root");
 
     if (navRoot) {
-      navRoot.innerHTML = renderNavBrand(siteData.brand) + siteData.navLinks.map(renderNavLink).join("");
+      navRoot.innerHTML = siteData.navLinks.map(renderNavLink).join("");
     }
 
     if (timelineRoot) {
@@ -382,7 +365,7 @@
 
   function initDom() {
     applyDarkMode();
-    ensureSiteLogo(siteData.brand);
+    ensureSiteLogo();
     renderPage();
   }
 
