@@ -52,7 +52,7 @@
           // },
           {
             date: "May | Internship",
-            title: "GCSE Classroom",
+            title: "Classroom 42",
             desc: "Software Engineer Intern",
             className: "span-2 classroom42-card"
           },
