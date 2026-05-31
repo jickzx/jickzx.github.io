@@ -30,8 +30,8 @@
         external: true
       },
       {
-        href: "/cv/je_cv_may13_2026.pdf",
-        label: "cv (May 13, 2026)",
+        href: "/cv/je_cv_may31_2026.pdf",
+        label: "cv",
         external: true
       },
     ],
@@ -53,7 +53,7 @@
           {
             date: "May | Internship",
             title: "Classroom 42",
-            desc: "Software Engineer Intern",
+            desc: "Software Engineer",
             className: "span-2 classroom42-card"
           },
           {
@@ -285,6 +285,32 @@
     ].join("");
   }
 
+  function ensureSiteLogo() {
+    var logoHref = new URL("images/logo.png", document.baseURI).href;
+
+    [
+      { rel: "icon", type: "image/png" },
+      { rel: "shortcut icon" },
+      { rel: "apple-touch-icon" }
+    ].forEach(function (iconConfig) {
+      var selector = 'link[rel="' + iconConfig.rel + '"]';
+      var existing = document.head.querySelector(selector);
+      var link = existing || document.createElement("link");
+
+      link.setAttribute("rel", iconConfig.rel);
+
+      if (iconConfig.type) {
+        link.setAttribute("type", iconConfig.type);
+      }
+
+      link.setAttribute("href", logoHref);
+
+      if (!existing) {
+        document.head.appendChild(link);
+      }
+    });
+  }
+
   function renderLinks(links) {
     if (!links || !links.length) {
       return "";
@@ -340,6 +366,7 @@
 
   function initDom() {
     applyDarkMode();
+    ensureSiteLogo();
     renderPage();
   }
 
