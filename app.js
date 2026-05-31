@@ -286,10 +286,11 @@
   }
 
   function ensureSiteLogo() {
-    var logoHref = "/images/logo.png";
+    var logoHref = new URL("images/logo.png", document.baseURI).href;
 
     [
       { rel: "icon", type: "image/png" },
+      { rel: "shortcut icon" },
       { rel: "apple-touch-icon" }
     ].forEach(function (iconConfig) {
       var selector = 'link[rel="' + iconConfig.rel + '"]';
