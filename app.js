@@ -53,7 +53,7 @@
           {
             date: "May | Internship",
             title: "Classroom 42",
-            desc: "Software Engineer Intern",
+            desc: "Software Engineer",
             className: "span-2 classroom42-card"
           },
           {
