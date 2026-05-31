@@ -2,6 +2,11 @@
   var siteData = {
     navLinks: [
       {
+        href: "/",
+        label: "home",
+        className: "text-decoration-underline link-offset-3"
+      },
+      {
         href: "/about.html",
         label: "about"
       },
