@@ -392,6 +392,8 @@ hr {
   display: flex;
   flex-direction: column;
   position: relative;
+  color: var(--font-color);
+  font-weight: 400;
 }
 .timeline-item.practera-card {
   border: 1.5px solid transparent;
@@ -528,15 +530,19 @@ hr {
     red hat mono,
     monospace;
   font-size: 0.75rem;
+  color: color-mix(in srgb, var(--font-color) 72%, transparent);
   opacity: 0.6;
   align-self: flex-end;
 }
 .timeline-title {
-  font-weight: 700;
+  color: var(--font-color);
+  font-weight: 600;
   font-size: 1.1rem;
 }
 .timeline-desc {
+  color: var(--font-color);
   font-size: 0.9rem;
+  font-weight: 400;
   opacity: 0.8;
 }
 @media (max-width: 600px) {
