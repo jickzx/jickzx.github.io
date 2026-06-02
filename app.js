@@ -59,7 +59,21 @@
             date: "May | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
-            className: "span-2 classroom42-card"
+            className: "span-2 classroom42-card",
+            links: [
+              {
+                href: "https://www.classroom42.com/",
+                external: true,
+                iconClass: "icon-website",
+                title: "globe",
+              },
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7466384826489683968/",
+                external: true,
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              },
+            ]
           },
           {
             date: "May | Hackathon",
