@@ -51,6 +51,11 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "Jun | Internship",
+            title: "Proctor & Gamble",
+            desc: "Virtual Insight"
+          },
+          {
             date: "May | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
