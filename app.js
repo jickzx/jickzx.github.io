@@ -247,6 +247,16 @@
             desc: "Joined with 30 other students"
           }
         ]
+      },
+      {
+        year: "2023",
+        items: [
+          {
+            date: "July 2023 - Feb 2025 | Job",
+            title: "CashMart",
+            desc: "Sales Assistant",
+          }
+        ]
       }
     ]
   };
