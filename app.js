@@ -51,10 +51,29 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "Jun | Internship",
+            title: "Proctor & Gamble",
+            desc: "Virtual Insight"
+          },
+          {
             date: "May | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
-            className: "span-2 classroom42-card"
+            className: "span-2 classroom42-card",
+            links: [
+              {
+                href: "https://www.classroom42.com/",
+                external: true,
+                iconClass: "icon-internet",
+                title: "globe",
+              },
+              {
+                href: "https://www.linkedin.com/feed/update/urn:li:activity:7466384826489683968/",
+                external: true,
+                iconClass: "icon-linkedin",
+                title: "LinkedIn",
+              },
+            ]
           },
           {
             date: "May | Hackathon",
@@ -226,6 +245,16 @@
             date: "Mar | Spring Insight",
             title: "ARM, Cambridge Office",
             desc: "Joined with 30 other students"
+          }
+        ]
+      },
+      {
+        year: "2023",
+        items: [
+          {
+            date: "July 2023 - Feb 2025 | Job",
+            title: "CashMart",
+            desc: "Sales Assistant",
           }
         ]
       }
