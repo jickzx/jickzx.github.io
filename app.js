@@ -64,7 +64,7 @@
               {
                 href: "https://www.classroom42.com/",
                 external: true,
-                iconClass: "icon-website",
+                iconClass: "icon-internet",
                 title: "globe",
               },
               {
