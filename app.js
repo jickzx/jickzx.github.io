@@ -30,7 +30,7 @@
         external: true
       },
       {
-        href: "/cv/je_cv_may31_2026.pdf",
+        href: "/cv/je_cv_june24_2026.pdf",
         label: "cv",
         external: true
       },
