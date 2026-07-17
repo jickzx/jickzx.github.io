@@ -51,12 +51,7 @@
           //   desc: "Incoming...",
           // },
           {
-            date: "Jun | Insight",
-            title: "Proctor & Gamble",
-            desc: "Virtual Insight"
-          },
-          {
-            date: "May | Internship",
+            date: "Jun-Jul | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
             className: "span-2 classroom42-card",
@@ -74,6 +69,11 @@
                 title: "LinkedIn",
               },
             ]
+          },
+          {
+            date: "Jun | Insight",
+            title: "Proctor & Gamble",
+            desc: "Virtual Insight"
           },
           {
             date: "May | Hackathon",
