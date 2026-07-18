@@ -51,6 +51,11 @@
           //   desc: "Incoming...",
           // },
           {
+            date: "Jul-Jun | Experience",
+            title: "Notion",
+            desc: "Campus Leader"
+          }, 
+          {
             date: "Jun-Jul | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
