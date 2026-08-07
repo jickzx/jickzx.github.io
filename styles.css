@@ -423,10 +423,9 @@ hr {
   pointer-events: none;
   background: conic-gradient(
     from var(--classroom42-angle),
-    var(--classroom42-blue) 0deg,
-    var(--classroom42-orange) 115deg,
-    var(--classroom42-blue) 240deg,
-    var(--classroom42-blue) 360deg
+    var(--classroom42-blue) 0deg 150deg,
+    var(--classroom42-orange) 175deg 190deg,
+    var(--classroom42-blue) 215deg 360deg
   );
   animation: classroom42-outline-spin 5.5s linear infinite;
   -webkit-mask:
