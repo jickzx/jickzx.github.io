@@ -51,7 +51,12 @@
           //   desc: "Incoming...",
           // },
           {
-            date: "Jul-Jun | Experience",
+            date: "Jul-Jun '26 | Volunteer",
+            title: "University of Nottingham",
+            desc: "Computer Science Mentor"
+          },
+          {
+            date: "Jul-Jun '26 | Experience",
             title: "Notion",
             desc: "Campus Leader"
           }, 
