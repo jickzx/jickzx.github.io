@@ -61,7 +61,7 @@
             desc: "Campus Leader"
           }, 
           {
-            date: "Jun-Jul | Internship",
+            date: "Jun-Sep | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
             className: "span-2 classroom42-card",
