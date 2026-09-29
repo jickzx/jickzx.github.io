@@ -445,6 +445,9 @@ hr {
   position: relative;
   z-index: 1;
 }
+.timeline-item.classroom42-card .timeline-icons {
+  position: absolute;
+}
 .timeline-item.classroom42-card .timeline-date {
   color: color-mix(in srgb, white 78%, var(--classroom42-orange) 22%);
   opacity: 0.92;

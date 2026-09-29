@@ -30,7 +30,7 @@
         external: true
       },
       {
-        href: "/cv/jecv_google.pdf",
+        href: "/cv/je_cv_may31_2026.pdf",
         label: "cv",
         external: true
       },
@@ -51,12 +51,17 @@
           //   desc: "Incoming...",
           // },
           {
-            date: "Jun | Insight",
-            title: "Proctor & Gamble",
-            desc: "Virtual Insight"
+            date: "Jul-Jun '27 | Volunteer",
+            title: "University of Nottingham",
+            desc: "Computer Science Mentor"
           },
           {
-            date: "May | Internship",
+            date: "Jul-Jun '27 | Experience",
+            title: "Notion",
+            desc: "Campus Leader"
+          }, 
+          {
+            date: "Jun-Sep | Internship",
             title: "Classroom 42",
             desc: "Software Engineer",
             className: "span-2 classroom42-card",
@@ -74,6 +79,11 @@
                 title: "LinkedIn",
               },
             ]
+          },
+          {
+            date: "Jun | Insight",
+            title: "Proctor & Gamble",
+            desc: "Virtual Insight"
           },
           {
             date: "May | Hackathon",
