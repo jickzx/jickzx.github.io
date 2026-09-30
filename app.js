@@ -11,6 +11,10 @@
         label: "about"
       },
       {
+        href: "/notes.html",
+        label: "notes"
+      },
+      {
         href: "/posts.html",
         label: "posts"
       },
