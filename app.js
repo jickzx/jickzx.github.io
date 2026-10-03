@@ -17,27 +17,27 @@
       {
         href: "/posts.html",
         label: "posts"
-      },
-      {
-        href: "https://github.com/jickzx",
-        label: "github",
-        external: true
-      },
-      {
-        href: "https://www.linkedin.com/in/jaesp/",
-        label: "linkedin",
-        external: true
-      },
-      {
-        href: "mailto:jamesesp3@gmail.com",
-        label: "email",
-        external: true
-      },
-      {
-        href: "/cv/je_cv_may31_2026.pdf",
-        label: "cv",
-        external: true
-      },
+      // },
+      // {
+      //   href: "https://github.com/jickzx",
+      //   label: "github",
+      //   external: true
+      // },
+      // {
+      //   href: "https://www.linkedin.com/in/jaesp/",
+      //   label: "linkedin",
+      //   external: true
+      // },
+      // {
+      //   href: "mailto:jamesesp3@gmail.com",
+      //   label: "email",
+      //   external: true
+      // },
+      // {
+      //   href: "/cv/je_cv_may31_2026.pdf",
+      //   label: "cv",
+      //   external: true
+      // },
     ],
     timeline: [
       {
