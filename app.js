@@ -17,7 +17,7 @@
       {
         href: "/posts.html",
         label: "posts"
-      // },
+      },
       // {
       //   href: "https://github.com/jickzx",
       //   label: "github",
