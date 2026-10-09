@@ -49,18 +49,18 @@
           //   desc: "IEUK, Incoming Technology Internship (backup internship)",
           //   className: "span-2",
           // },
-          // {
-          //   date: "Jun | Hackathon",
-          //   title: "Hack The Law, Cambridge",
-          //   desc: "Incoming...",
-          // },
           {
-            date: "Jul-Jun '27 | Volunteer",
+            date: "Oct-Present",
+            title: "Project CRES",
+            desc: "Embedded Software Engineer"
+          },
+          {
+            date: "Jul-Present '27 | Volunteer",
             title: "University of Nottingham",
             desc: "Computer Science Mentor"
           },
           {
-            date: "Jul-Jun '27 | Experience",
+            date: "Jul-Present '27 | Volunteer",
             title: "Notion",
             desc: "Campus Leader"
           }, 
