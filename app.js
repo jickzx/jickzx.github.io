@@ -11,29 +11,33 @@
         label: "about"
       },
       {
+        href: "/notes.html",
+        label: "notes"
+      },
+      {
         href: "/posts.html",
         label: "posts"
       },
-      {
-        href: "https://github.com/jickzx",
-        label: "github",
-        external: true
-      },
-      {
-        href: "https://www.linkedin.com/in/jaesp/",
-        label: "linkedin",
-        external: true
-      },
-      {
-        href: "mailto:jamesesp3@gmail.com",
-        label: "email",
-        external: true
-      },
-      {
-        href: "/cv/je_cv_may31_2026.pdf",
-        label: "cv",
-        external: true
-      },
+      // {
+      //   href: "https://github.com/jickzx",
+      //   label: "github",
+      //   external: true
+      // },
+      // {
+      //   href: "https://www.linkedin.com/in/jaesp/",
+      //   label: "linkedin",
+      //   external: true
+      // },
+      // {
+      //   href: "mailto:jamesesp3@gmail.com",
+      //   label: "email",
+      //   external: true
+      // },
+      // {
+      //   href: "/cv/je_cv_may31_2026.pdf",
+      //   label: "cv",
+      //   external: true
+      // },
     ],
     timeline: [
       {
@@ -45,18 +49,18 @@
           //   desc: "IEUK, Incoming Technology Internship (backup internship)",
           //   className: "span-2",
           // },
-          // {
-          //   date: "Jun | Hackathon",
-          //   title: "Hack The Law, Cambridge",
-          //   desc: "Incoming...",
-          // },
           {
-            date: "Jul-Jun '27 | Volunteer",
+            date: "Oct-Present",
+            title: "Project CRES",
+            desc: "Embedded Software Engineer"
+          },
+          {
+            date: "Jul-Present '27 | Volunteer",
             title: "University of Nottingham",
             desc: "Computer Science Mentor"
           },
           {
-            date: "Jul-Jun '27 | Experience",
+            date: "Jul-Present '27 | Volunteer",
             title: "Notion",
             desc: "Campus Leader"
           }, 
