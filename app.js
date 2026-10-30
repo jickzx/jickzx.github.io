@@ -50,9 +50,14 @@
           //   className: "span-2",
           // },
           {
+            date: "Nov-Present",
+            title: "University of Nottingham Space Society",
+            desc: "Web Developer"
+          },
+          {
             date: "Oct-Present",
             title: "Project CRES",
-            desc: "Embedded Software Engineer"
+            desc: "Systems Engineer"
           },
           {
             date: "Jul-Present '27 | Volunteer",
