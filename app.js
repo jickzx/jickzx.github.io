@@ -50,6 +50,10 @@
           //   className: "span-2",
           // },
           {
+            date: "Nov | Hackathon",
+            title: "WHACK '26",
+          },
+          {
             date: "Nov-Present",
             title: "University of Nottingham Space Society",
             desc: "Web Developer"
