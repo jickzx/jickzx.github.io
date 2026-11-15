@@ -59,6 +59,11 @@
             desc: "Web Developer"
           },
           {
+            date: "Oct | Hackathon",
+            title: "OxHack '26",
+            desc: "The first external!"
+          },
+          {
             date: "Oct-Present",
             title: "Project CRES",
             desc: "Systems Engineer"
