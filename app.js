@@ -51,6 +51,10 @@
           // },
           {
             date: "Nov | Hackathon",
+            title: "DurHack '26",
+          },
+          {
+            date: "Nov | Hackathon",
             title: "WHACK '26",
           },
           {
